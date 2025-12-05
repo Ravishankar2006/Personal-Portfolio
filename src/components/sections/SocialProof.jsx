@@ -3,15 +3,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { label: "Projects Built", value: 5, suffix: "+", icon: "🚀", color: "from-cyan-400 to-blue-500" },
-  { label: "Technologies", value: 10, suffix: "+", icon: "⚡", color: "from-yellow-400 to-orange-500" },
-  { label: "Lines of Code", value: 10, suffix: "K+", icon: "💻", color: "from-purple-400 to-pink-500" },
-  { label: "Coffee Consumed", value: 99, suffix: "", icon: "☕", color: "from-amber-400 to-red-500", special: "∞" }
+  { label: "Projects Built", value: 5, suffix: "+", icon: "🚀", color: "from-cyan-400 to-white-500" },
+  { label: "Technologies", value: 10, suffix: "+", icon: "⚡", color: "from-yellow-400 to-white-500" },
+  { label: "Lines of Code", value: 10, suffix: "K+", icon: "💻", color: "from-purple-400 to-white-500" },
+  { label: "Coffee Consumed", value: 99, suffix: "", icon: "☕", color: "from-amber-400 to-white-500", special: "∞" }
 ];
 
 const interests = [
   "Ethical Hacking",
-  "Discrete Mathematics",
+  "Linux",
   "System Design",
   "Algorithm Optimization",
   "AI & Machine Learning"

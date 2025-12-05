@@ -1,23 +1,34 @@
 // src/App.jsx
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import Hero from "./components/Hero";
-import Timeline from "./components/TimeLine";
-import TechStack from "./components/TechStack";
-import Projects from "./components/Projects";
-import SocialProof from "./components/SocialProof";
-import SkillBars from "./components/SkillBars";
-import Terminal from "./components/Terminal";
-import Contact from "./components/Contact";
-import SettingsPanel from "./components/SettingsPanel";
-import MobileMenu from "./components/MobileMenu";
-import SkipLink from "./components/SkipLink";
+
+// Sections
+import Hero from "./components/sections/Hero";
+import Timeline from "./components/sections/Timeline";
+import TechStack from "./components/sections/TechStack";
+import Projects from "./components/sections/Projects";
+import SocialProof from "./components/sections/SocialProof";
+import TechWorkflow from "./components/sections/TechWorkflow";
+import Terminal from "./components/sections/Terminal";
+import Contact from "./components/sections/Contact";
+
+// Layout
+import SettingsPanel from "./components/layout/SettingsPanel";
+import MobileMenu from "./components/layout/MobileMenu";
+
+// UI Components
+import SkipLink from "./components/ui/SkipLink";
+import BackToTop from "./components/ui/BackToTop";
+
+// Effects
+import PageTransition from "./components/effects/PageTransition";
+import { SmoothScroll } from "./components/effects/SmoothScroll";
 import { 
   ScrollProgress, 
   LoadingScreen, 
   CustomCursor,
   BackgroundGrid 
-} from "./components/Enhancements";
+} from "./components/effects/Enhancements";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -45,17 +56,20 @@ function App() {
       {/* Main App */}
       {!loading && (
         <div className="bg-black min-h-screen">
-          {/* Accessibility */}
+          {/* UI Enhancements */}
           <SkipLink />
-
-          {/* Enhancements */}
+          <SmoothScroll />
           <ScrollProgress />
           <CustomCursor />
           <BackgroundGrid />
+          
+          {/* Layout Components */}
           <SettingsPanel />
           <MobileMenu />
+          <BackToTop />
+          <PageTransition />
 
-          {/* Sections */}
+          {/* Content Sections */}
           <Hero started={started} onStart={handleStart} />
 
           <section id="timeline">
@@ -66,7 +80,7 @@ function App() {
             <TechStack />
           </section>
 
-          <SkillBars />
+          <TechWorkflow />
 
           <section id="projects">
             <Projects />

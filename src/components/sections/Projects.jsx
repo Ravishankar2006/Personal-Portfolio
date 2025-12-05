@@ -1,7 +1,8 @@
 // src/components/Projects.jsx
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ProjectModal from "./ProjectModal";
+import ProjectModal from "../ui/ProjectModal";
+
 
 const projects = [
   {

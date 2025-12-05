@@ -1,16 +1,14 @@
 // src/components/SettingsPanel.jsx
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { soundManager } from "../utils/sounds";
+import { soundManager } from "../../utils/sounds";
 
 const SettingsPanel = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(
-    localStorage.getItem('soundEnabled') === 'true'
+    localStorage.getItem("soundEnabled") === "true"
   );
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'dark'
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   const toggleSound = () => {
     const newState = soundManager.toggle();
@@ -19,10 +17,10 @@ const SettingsPanel = () => {
   };
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('light-mode');
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("light-mode");
     soundManager.playClick();
   };
 
@@ -81,16 +79,18 @@ const SettingsPanel = () => {
                     onClick={toggleSound}
                     className={`w-full flex items-center justify-between p-4 rounded-xl border transition-all ${
                       soundEnabled
-                        ? 'bg-cyan-500/10 border-cyan-500/50'
-                        : 'bg-zinc-800 border-zinc-700'
+                        ? "bg-cyan-500/10 border-cyan-500/50"
+                        : "bg-zinc-800 border-zinc-700"
                     }`}
                   >
                     <span className="text-white font-medium">
-                      {soundEnabled ? 'Enabled' : 'Disabled'}
+                      {soundEnabled ? "Enabled" : "Disabled"}
                     </span>
-                    <div className={`w-12 h-6 rounded-full relative transition-colors ${
-                      soundEnabled ? 'bg-cyan-500' : 'bg-zinc-700'
-                    }`}>
+                    <div
+                      className={`w-12 h-6 rounded-full relative transition-colors ${
+                        soundEnabled ? "bg-cyan-500" : "bg-zinc-700"
+                      }`}
+                    >
                       <motion.div
                         className="absolute top-1 w-4 h-4 rounded-full bg-white"
                         animate={{ left: soundEnabled ? 26 : 4 }}
@@ -109,7 +109,7 @@ const SettingsPanel = () => {
                     className="w-full flex items-center justify-between p-4 rounded-xl border bg-zinc-800 border-zinc-700 hover:border-zinc-600 transition-colors"
                   >
                     <span className="text-white font-medium">
-                      {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
+                      {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
                     </span>
                     <span className="text-zinc-400 text-sm">Switch</span>
                   </button>
@@ -118,7 +118,8 @@ const SettingsPanel = () => {
                 {/* Info */}
                 <div className="pt-6 border-t border-zinc-800">
                   <p className="text-xs text-zinc-500 leading-relaxed">
-                    Customize your experience with sound effects and theme preferences. Settings are saved locally.
+                    Customize your experience with sound effects and theme
+                    preferences. Settings are saved locally.
                   </p>
                 </div>
               </div>

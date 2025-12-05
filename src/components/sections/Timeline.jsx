@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 
 const history = [
   {
-    year: "2023 - Present",
+    year: "2025 - Present",
     title: "B.Tech Computer Science Engineering",
     subtitle: "Sri Eshwar College of Engineering",
-    desc: "Building full-stack systems, exploring ethical hacking, discrete math, and crafting projects with passion. Active learner with hands-on approach to tech.",
+    desc: "Building full-stack systems, exploring ethical hacking and crafting projects with passion. Active learner with hands-on approach to tech.",
     icon: "🎓",
     color: "cyan"
   },
   {
-    year: "2021 - 2023",
+    year: "2023 - 2024",
     title: "12th Grade - CBSE",
     subtitle: "AKR Academy CBSE School",
     desc: "Scored 352 marks with a cutoff of 132. Developed strong analytical skills and interest in computer science fundamentals.",
