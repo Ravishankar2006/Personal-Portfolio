@@ -270,3 +270,15 @@ export const BackgroundGrid = () => {
     </div>
   );
 };
+
+const Enhancements = () => {
+  return (
+    <>
+      <ScrollProgress />
+      <CustomCursor />
+      <BackgroundGrid />
+    </>
+  );
+};
+
+export default Enhancements;

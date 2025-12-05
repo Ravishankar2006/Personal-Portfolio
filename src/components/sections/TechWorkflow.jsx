@@ -1,4 +1,4 @@
-// src/components/TechWorkflow.jsx (or sections/TechWorkflow.jsx)
+// src/components/TechWorkflow.jsx
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -88,7 +88,7 @@ const TechWorkflow = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
-          className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 mb-8"
+          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 mb-8"
         >
           <h3 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
             <span>🛠️</span> Development Environment
@@ -102,7 +102,7 @@ const TechWorkflow = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
                   activeTab === index
                     ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50'
-                    : 'bg-zinc-800/50 text-zinc-400 border border-zinc-700 hover:border-zinc-600'
+                    : 'bg-white/5 text-zinc-400 border border-white/10 hover:border-white/20'
                 }`}
               >
                 {env.category}
@@ -117,7 +117,7 @@ const TechWorkflow = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-3 p-4 bg-zinc-800/30 rounded-xl border border-zinc-700 hover:border-cyan-400/30 transition-all"
+                className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-cyan-400/30 transition-all"
               >
                 <span className="text-2xl flex-shrink-0">{tool.icon}</span>
                 <div>
@@ -138,7 +138,7 @@ const TechWorkflow = () => {
               viewport={{ once: false }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 hover:border-cyan-400/30 transition-all"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-all"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{method.icon}</span>

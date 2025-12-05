@@ -3,7 +3,6 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 // Sections
-import Hero from "./components/sections/Hero";
 import Timeline from "./components/sections/Timeline";
 import TechStack from "./components/sections/TechStack";
 import Projects from "./components/sections/Projects";
@@ -11,6 +10,8 @@ import SocialProof from "./components/sections/SocialProof";
 import TechWorkflow from "./components/sections/TechWorkflow";
 import Terminal from "./components/sections/Terminal";
 import Contact from "./components/sections/Contact";
+import ProfileIntro from './components/sections/ProfileIntro';
+import Achievements from './components/sections/Achievements';
 
 // Layout
 import SettingsPanel from "./components/layout/SettingsPanel";
@@ -31,18 +32,10 @@ import {
 } from "./components/effects/Enhancements";
 
 function App() {
-  const [started, setStarted] = useState(false);
+
   const [loading, setLoading] = useState(true);
 
-  const handleStart = () => {
-    setStarted(true);
-    setTimeout(() => {
-      const el = document.getElementById("timeline");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 800);
-  };
+
 
   return (
     <>
@@ -70,7 +63,8 @@ function App() {
           <PageTransition />
 
           {/* Content Sections */}
-          <Hero started={started} onStart={handleStart} />
+          {/* <Hero started={started} onStart={handleStart} /> */}
+          <ProfileIntro />
 
           <section id="timeline">
             <Timeline />
@@ -91,6 +85,8 @@ function App() {
           </div>
 
           <SocialProof />
+
+          <Achievements />
 
           <section id="contact">
             <Contact />

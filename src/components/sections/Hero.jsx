@@ -86,26 +86,6 @@ const Hero = ({ started, onStart }) => {
           </MagneticButton>
         </motion.div>
       </div>
-
-      {/* Add keyframes at bottom of component */}
-      <style jsx>{`
-        @keyframes slideBeam {
-          0% {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </section>
   );
 };

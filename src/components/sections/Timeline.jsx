@@ -1,4 +1,4 @@
-// src/components/Timeline.jsx (or sections/Timeline.jsx)
+// src/components/Timeline.jsx
 import { motion } from "framer-motion";
 
 const timelineData = [
@@ -55,10 +55,10 @@ const Timeline = () => {
             >
               <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
               
-              <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-cyan-500/50 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]">
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-6 hover:border-white/20 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]">
                 <div className="text-cyan-400 text-sm font-mono mb-2">{item.year}</div>
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-zinc-400 text-sm mb-3">{item.institution}</p>
+                <p className="text-zinc-300 text-sm mb-3">{item.institution}</p>
                 <p className="text-zinc-300 text-sm">{item.description}</p>
               </div>
             </motion.div>

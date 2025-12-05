@@ -1,4 +1,4 @@
-// src/components/TechStack.jsx (or sections/TechStack.jsx)
+// src/components/TechStack.jsx
 import { motion } from "framer-motion";
 
 const techCategories = [
@@ -50,7 +50,7 @@ const TechStack = () => {
               viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 hover:border-cyan-500/50 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
             >
               <h3 className="text-lg font-bold text-cyan-400 mb-4">{tech.category}</h3>
               <ul className="space-y-2">
