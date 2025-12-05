@@ -21,7 +21,7 @@ const interests = [
 const AnimatedCounter = ({ value, suffix, special }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (isInView && !special) {
@@ -68,7 +68,7 @@ const SocialProof = () => {
               key={stat.label}
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ 
                 duration: 0.5, 
                 delay: index * 0.1,
@@ -123,7 +123,7 @@ const SocialProof = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="relative"
         >
@@ -138,7 +138,7 @@ const SocialProof = () => {
             <motion.h3 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3"
             >
               <motion.span
@@ -160,7 +160,7 @@ const SocialProof = () => {
                   key={i}
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ 
                     duration: 0.4, 
                     delay: 0.5 + i * 0.08,

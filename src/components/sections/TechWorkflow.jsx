@@ -1,4 +1,4 @@
-// src/components/TechWorkflow.jsx
+// src/components/TechWorkflow.jsx (or sections/TechWorkflow.jsx)
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -59,27 +59,18 @@ const TechWorkflow = () => {
     }
   ];
 
-  const projectMetrics = [
-    { label: "Full-Stack Projects", value: "5+", desc: "Production & prototype systems" },
-    { label: "GitHub Repos", value: "15+", desc: "Public & private repositories" },
-    { label: "Tech Stack", value: "10+", desc: "Languages & frameworks mastered" },
-    { label: "Active Learning", value: "Daily", desc: "Ethical hacking & new tech" }
-  ];
-
   return (
     <section className="relative w-full bg-black text-white py-20 px-6">
-      {/* Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-12"
         >
           <p className="text-cyan-400 text-xs uppercase tracking-[0.3em] mb-3">
@@ -93,39 +84,16 @@ const TechWorkflow = () => {
           </p>
         </motion.div>
 
-        {/* Project Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          {projectMetrics.map((metric, index) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-xl p-5 text-center hover:border-cyan-400/50 transition-all"
-            >
-              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent mb-2">
-                {metric.value}
-              </div>
-              <div className="text-sm font-medium text-white mb-1">{metric.label}</div>
-              <div className="text-xs text-zinc-500">{metric.desc}</div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Development Environment */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 mb-8"
         >
           <h3 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
             <span>🛠️</span> Development Environment
           </h3>
 
-          {/* Tab Headers */}
           <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
             {devEnvironment.map((env, index) => (
               <button
@@ -142,7 +110,6 @@ const TechWorkflow = () => {
             ))}
           </div>
 
-          {/* Tab Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {devEnvironment[activeTab].tools.map((tool, index) => (
               <motion.div
@@ -162,14 +129,13 @@ const TechWorkflow = () => {
           </div>
         </motion.div>
 
-        {/* Methodology Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {methodology.map((method, index) => (
             <motion.div
               key={method.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
               className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 rounded-2xl p-6 hover:border-cyan-400/30 transition-all"

@@ -1,6 +1,6 @@
-// src/components/Terminal.jsx
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+// src/components/Terminal.jsx (or sections/Terminal.jsx)
+import { motion, useInView } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 const commands = [
   { cmd: "whoami", output: "ravi_shankar" },
@@ -14,8 +14,25 @@ const Terminal = () => {
   const [currentLine, setCurrentLine] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.3 });
+
+  // Reset animation when component comes into view (only once per view)
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCurrentLine(0);
+      setDisplayedText("");
+      setHasAnimated(true);
+    } else if (!isInView && hasAnimated) {
+      // Reset the flag when scrolled away so it can animate again
+      setHasAnimated(false);
+    }
+  }, [isInView, hasAnimated]);
 
   useEffect(() => {
+    if (!isInView) return;
     if (currentLine >= commands.length) return;
 
     const command = commands[currentLine];
@@ -33,7 +50,7 @@ const Terminal = () => {
       }, 1500);
       return () => clearTimeout(timeout);
     }
-  }, [displayedText, currentLine]);
+  }, [displayedText, currentLine, isInView]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,9 +61,10 @@ const Terminal = () => {
 
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ duration: 0.6 }}
       className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl"
     >
@@ -61,7 +79,7 @@ const Terminal = () => {
       </div>
 
       {/* Terminal Body */}
-      <div className="p-4 font-mono text-sm space-y-2 h-64 overflow-auto">
+      <div className="p-4 font-mono text-sm space-y-2 min-h-[320px]">
         {commands.slice(0, currentLine).map((item, i) => (
           <div key={i} className="space-y-1">
             <div className="text-cyan-400">$ {item.cmd}</div>
