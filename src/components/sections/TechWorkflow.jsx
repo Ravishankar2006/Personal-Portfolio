@@ -1,162 +1,165 @@
-// src/components/TechWorkflow.jsx
+// src/components/sections/TechWorkflow.jsx - LIGHT ENHANCEMENTS
 import { motion } from "framer-motion";
 import { useState } from "react";
+
+const workflowData = [
+  {
+    category: "Development",
+    icon: "💻",
+    color: "from-cyan-400 to-blue-500",
+    tools: [
+      { name: "VS Code", description: "Primary code editor" },
+      { name: "Git/GitHub", description: "Version control" },
+      { name: "Postman", description: "API testing" },
+      { name: "Chrome DevTools", description: "Debugging" }
+    ]
+  },
+  {
+    category: "Design",
+    icon: "🎨",
+    color: "from-purple-400 to-pink-500",
+    tools: [
+      { name: "Figma", description: "UI/UX design" },
+      { name: "Tailwind CSS", description: "Styling framework" },
+      { name: "Framer Motion", description: "Animations" }
+    ]
+  },
+  {
+    category: "Backend",
+    icon: "⚙️",
+    color: "from-green-400 to-emerald-500",
+    tools: [
+      { name: "Spring Boot", description: "Java framework" },
+      { name: "MySQL", description: "Database" },
+      { name: "Postman", description: "API testing" },
+      { name: "Docker", description: "Containerization" }
+    ]
+  },
+  {
+    category: "Mobile",
+    icon: "📱",
+    color: "from-yellow-400 to-orange-500",
+    tools: [
+      { name: "Android Studio", description: "Android development" },
+      { name: "Flutter", description: "Cross-platform" },
+      { name: "Firebase", description: "Backend services" }
+    ]
+  }
+];
 
 const TechWorkflow = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const devEnvironment = [
-    {
-      category: "Development",
-      tools: [
-        { name: "VS Code", desc: "Primary IDE with custom extensions", icon: "💻" },
-        { name: "IntelliJ IDEA", desc: "For Spring Boot development", icon: "🔧" },
-        { name: "Android Studio", desc: "Mobile app development", icon: "📱" },
-        { name: "Git & GitHub", desc: "Version control & collaboration", icon: "🔀" }
-      ]
-    },
-    {
-      category: "Database & Testing",
-      tools: [
-        { name: "MySQL Workbench", desc: "Database design & management", icon: "🗄️" },
-        { name: "Postman", desc: "API testing & documentation", icon: "📮" },
-        { name: "JUnit", desc: "Unit testing framework", icon: "✅" },
-        { name: "React DevTools", desc: "Frontend debugging", icon: "🔍" }
-      ]
-    }
-  ];
-
-  const methodology = [
-    {
-      title: "Problem Solving Approach",
-      points: [
-        "Break complex problems into smaller modules",
-        "Research similar solutions and best practices",
-        "Prototype rapidly, iterate based on testing",
-        "Document code for future maintainability"
-      ],
-      icon: "🧩"
-    },
-    {
-      title: "Development Workflow",
-      points: [
-        "Plan architecture before coding",
-        "Follow MVC/layered architecture patterns",
-        "Write clean, readable code with comments",
-        "Test thoroughly before deployment"
-      ],
-      icon: "⚙️"
-    },
-    {
-      title: "Learning Strategy",
-      points: [
-        "Hands-on project-based learning",
-        "Explore new technologies through implementation",
-        "Study discrete math & algorithms deeply",
-        "Stay updated with tech trends & security"
-      ],
-      icon: "📚"
-    }
-  ];
-
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl" />
-      </div>
+    <section className="min-h-screen py-20 px-6 relative overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/3 to-transparent" />
 
-      <div className="relative max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          className="text-center mb-12"
-        >
-          <p className="text-cyan-400 text-xs uppercase tracking-[0.3em] mb-3">
-            Technical Arsenal
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Development Workflow & Tools
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            My approach to building reliable, scalable systems from concept to deployment
-          </p>
-        </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-5xl mx-auto relative"
+      >
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-cyan-400 text-sm uppercase tracking-widest mb-4"
+          >
+            DEVELOPMENT SETUP
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold"
+          >
+            <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+              Tech Workflow
+            </span>
+          </motion.h2>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 mb-8"
-        >
-          <h3 className="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
-            <span>🛠️</span> Development Environment
-          </h3>
-
-          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-            {devEnvironment.map((env, index) => (
-              <button
-                key={env.category}
-                onClick={() => setActiveTab(index)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all whitespace-nowrap ${
-                  activeTab === index
-                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50'
-                    : 'bg-white/5 text-zinc-400 border border-white/10 hover:border-white/20'
-                }`}
-              >
-                {env.category}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {devEnvironment[activeTab].tools.map((tool, index) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-cyan-400/30 transition-all"
-              >
-                <span className="text-2xl flex-shrink-0">{tool.icon}</span>
-                <div>
-                  <h4 className="font-medium text-white mb-1">{tool.name}</h4>
-                  <p className="text-sm text-zinc-400">{tool.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {methodology.map((method, index) => (
-            <motion.div
-              key={method.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition-all"
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {workflowData.map((workflow, idx) => (
+            <motion.button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                activeTab === idx
+                  ? `bg-gradient-to-r ${workflow.color} text-white shadow-lg`
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-zinc-400 hover:border-white/30"
+              }`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">{method.icon}</span>
-                <h3 className="text-lg font-bold text-white">{method.title}</h3>
-              </div>
-
-              <ul className="space-y-3">
-                {method.points.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-zinc-300">
-                    <span className="text-cyan-400 mt-0.5 flex-shrink-0">▹</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              <span className="text-xl">{workflow.icon}</span>
+              {workflow.category}
+            </motion.button>
           ))}
         </div>
-      </div>
+
+        {/* Active Tab Content */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="relative"
+        >
+          {/* Card */}
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+            {/* Subtle hover effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="relative">
+              {/* Tools Grid */}
+              <div className="grid md:grid-cols-2 gap-4">
+                {workflowData[activeTab].tools.map((tool, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    whileHover={{ x: 5 }}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 group/tool"
+                  >
+                    {/* Icon dot */}
+                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${workflowData[activeTab].color} mt-2 group-hover/tool:scale-150 transition-transform duration-300`} />
+                    
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-white mb-1 group-hover/tool:text-cyan-400 transition-colors">
+                        {tool.name}
+                      </h4>
+                      <p className="text-sm text-zinc-400">
+                        {tool.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-8"
+        >
+          <p className="text-zinc-500 text-sm">
+            Tools I use daily to build amazing projects ⚡
+          </p>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

@@ -1,10 +1,9 @@
 // src/App.jsx
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-
+import FloatingNav from './components/layout/FloatingNav';
 // Sections
 import Timeline from "./components/sections/Timeline";
-import TechStack from "./components/sections/TechStack";
 import Projects from "./components/sections/Projects";
 import SocialProof from "./components/sections/SocialProof";
 import TechWorkflow from "./components/sections/TechWorkflow";
@@ -19,7 +18,6 @@ import MobileMenu from "./components/layout/MobileMenu";
 
 // UI Components
 import SkipLink from "./components/ui/SkipLink";
-import BackToTop from "./components/ui/BackToTop";
 
 // Effects
 import PageTransition from "./components/effects/PageTransition";
@@ -57,36 +55,42 @@ function App() {
           <BackgroundGrid />
           
           {/* Layout Components */}
+          <FloatingNav />
           <SettingsPanel />
           <MobileMenu />
-          <BackToTop />
           <PageTransition />
 
           {/* Content Sections */}
           {/* <Hero started={started} onStart={handleStart} /> */}
-          <ProfileIntro />
+          <section id="profile">
+            <ProfileIntro />
+          </section>
 
           <section id="timeline">
             <Timeline />
           </section>
 
-          <section id="tech">
-            <TechStack />
+          <section id="workflow">
+            <TechWorkflow />
           </section>
-
-          <TechWorkflow />
 
           <section id="projects">
             <Projects />
           </section>
 
-          <div className="py-16 px-6">
-            <Terminal />
-          </div>
+          <section id="terminal">
+            <div className="py-16 px-6">
+              <Terminal />
+            </div>
+          </section>
 
-          <SocialProof />
+          <section id="skills">
+            <SocialProof />
+          </section>
 
-          <Achievements />
+          <section id="achievements">
+            <Achievements />
+          </section>
 
           <section id="contact">
             <Contact />
