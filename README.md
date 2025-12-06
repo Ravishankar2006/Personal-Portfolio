@@ -1,16 +1,115 @@
-# React + Vite
+React Cyberpunk Portfolio
+A modern, cyberpunk-themed personal portfolio built with React, Vite, Tailwind CSS, and Framer Motion. It features glassmorphism UI, an orbital skills system, custom cursor, smooth animations, and a floating navigation bar, designed to impress recruiters and showcase projects effectively.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack:
+-> React + Vite
 
-Currently, two official plugins are available:
+-> Tailwind CSS (styling, glassmorphism)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-> Framer Motion (animations, transitions)​
 
-## React Compiler
+-> Custom JavaScript for cursor, scroll, and nav interactions​
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Core Features:
 
-## Expanding the ESLint configuration
+  Profile Intro:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  -> Glitch-animated name, 3D-tilting profile avatar, subtle particles
+
+  -> Animated counters for CGPA, projects, and skills​
+
+  Education Timeline:
+
+  -> Glassmorphism cards with alternating layout
+
+  -> Animated vertical timeline line and pulsing nodes
+
+  -> Expandable details for each milestone (10th, 12th, CSE)​
+
+  Tech Workflow:
+
+  -> Tab-based workflow (Development, Design, Backend, Mobile)
+
+  -> Light, performant hover and entrance animations​
+
+  Projects Section:
+
+  -> Featured projects like Banking Core System, N-Queen Visualizer, etc., with tech tags​
+
+  Social Proof & Skills:
+
+  -> Orbital skills system around a brain icon (Ethical Hacking, System Design, Algorithm Optimization, AI/ML)
+
+  -> Click-to-expand descriptions and stat cards with glitch counters​
+
+  Achievements:
+
+  -> Certifications and achievements in glass cards with subtle motion​
+
+  Contact Section:
+
+  -> Glass connect cards for GitHub, LinkedIn, Email, Twitter​
+
+  UX Enhancements:
+
+  -> Custom neon cursor and trail
+
+  -> Smooth scroll and scroll-based animations
+
+  -> Floating right-side dot navigation with active section tracking
+
+  -> Modern settings panel (reduce motion, high contrast)
+  
+Project Structure:
+
+src/
+├── components/
+│   ├── sections/
+│   │   ├── ProfileIntro.jsx
+│   │   ├── Timeline.jsx
+│   │   ├── TechWorkflow.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Terminal.jsx
+│   │   ├── SocialProof.jsx
+│   │   ├── Achievements.jsx
+│   │   └── Contact.jsx
+│   ├── layout/
+│   │   ├── FloatingNav.jsx
+│   │   └── SettingsPanel.jsx
+│   ├── effects/
+│   │   ├── Enhancements.jsx
+│   │   └── SmoothScroll.jsx
+│   └── ui/
+│       └── SkipLink.jsx
+├── App.jsx
+└── index.css
+
+Getting Started:
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+Customization:
+-> Update profile, education, and stats in ProfileIntro.jsx and Timeline.jsx.​
+
+-> Edit skills and orbital system in SocialProof.jsx.​
+
+-> Add or modify projects in Projects.jsx.​
+
+-> Adjust workflow tabs and tools in TechWorkflow.jsx.​
+
+-> Configure links in Contact.jsx and achievements in Achievements.jsx.
+
+Notes:
+-> Designed for dark mode with glassmorphism and cyberpunk gradients only.​
+
+-> Animations are tuned for smoothness and performance, with many set to trigger once on scroll.​
