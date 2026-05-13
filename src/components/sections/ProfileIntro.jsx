@@ -2,6 +2,7 @@
 // src/components/sections/ProfileIntro.jsx - COMPLETE VERSION
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import profileImg from "../../assets/me3.png";
 
 // Animated Counter Component
 const AnimatedCounter = ({ value, suffix = "" }) => {
@@ -226,7 +227,7 @@ const ProfileIntro = () => {
 
                 {/* Profile Image */}
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9FsKd6n-d6z5McKv1CsGZrRWV1_qjSQkU-g&s"
+                  src={profileImg}
                   alt="Ravi Shankar"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
