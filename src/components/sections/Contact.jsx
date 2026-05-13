@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 
 const contactLinks = [
-  { name: "GitHub", icon: "💻", url: "https://github.com/yourusername", color: "from-purple-500 to-pink-500" },
-  { name: "LinkedIn", icon: "💼", url: "https://linkedin.com/in/yourusername", color: "from-blue-500 to-cyan-500" },
-  { name: "Email", icon: "📧", url: "mailto:your.email@example.com", color: "from-red-500 to-orange-500" },
+  { name: "GitHub", icon: "💻", url: "https://github.com/Ravishankar2006", color: "from-purple-500 to-pink-500" },
+  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/ravishankar-a-g", color: "from-blue-500 to-cyan-500" },
+  { name: "Email", icon: "📧", url: "mailto:ravishankar08062006@gmail.com", color: "from-red-500 to-orange-500" },
   { name: "Twitter", icon: "🐦", url: "https://twitter.com/yourusername", color: "from-cyan-500 to-blue-500" }
 ];
 
