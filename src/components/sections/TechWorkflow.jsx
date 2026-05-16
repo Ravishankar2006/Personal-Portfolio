@@ -41,7 +41,7 @@ const workflowData = [
     color: "from-yellow-400 to-orange-500",
     tools: [
       { name: "Android Studio", description: "Android development" },
-      { name: "Flutter", description: "Cross-platform" },
+      { name: "React Native", description: "Cross-platform" },
       { name: "Firebase", description: "Backend services" }
     ]
   }

@@ -4,28 +4,28 @@ import { useState } from "react";
 
 const projectsData = [
   {
-    title: "Banking Core System",
-    description: "Full-stack banking application with Spring Boot backend and secure transaction management",
-    tech: ["Spring Boot", "MySQL", "REST API", "JWT"],
-    icon: "🏦"
+    title: "Music Visualizer",
+    description: "Interactive music visualization tool with real-time audio processing and dynamic graphics",
+    tech: ["React", "WebGL", "Audio API"],
+    icon: "🎵"
   },
   {
-    title: "N-Queen Visualizer",
-    description: "Interactive algorithm visualization tool for the N-Queen problem with step-by-step solution",
-    tech: ["Python", "Algorithm", "Visualization"],
-    icon: "♟️"
+    title: "Feastly",
+    description: "Modern food e-commerce platform with seamless shopping experience and robust backend infrastructure",
+    tech: ["React", "Node.js", "MongoDB", "Stripe API"],
+    icon: "🍽️"
   },
   {
-    title: "Delivery Logger",
-    description: "Logistics tracking system with real-time updates and route optimization",
-    tech: ["Java", "Spring Boot", "Database"],
-    icon: "📦"
+    title: "EMI Calculator",
+    description: "Financial tool for calculating Equated Monthly Installments with dynamic interest rate calculations",
+    tech: ["JavaScript", "HTML", "CSS"],
+    icon: "💳"
   },
   {
-    title: "AI Agent System",
-    description: "Intelligent agent exploring machine learning and automation capabilities",
-    tech: ["Python", "AI/ML", "Automation"],
-    icon: "🤖"
+    title: "ConfliceFree",
+    description: "Automated timetable collision detection system for educational institutions",
+    tech: ["React", "Vite", "CSS"],
+    icon: "📔"
   }
 ];
 

@@ -7,18 +7,25 @@ const achievementsData = [
     category: "Certifications",
     items: [
       {
-        title: "Full Stack Development",
-        issuer: "Udemy / Coursera",
-        date: "2024",
+        title: "Data Structures & Algorithms",
+        issuer: "Udemy",
+        date: "2025",
         icon: "🎓",
         color: "from-cyan-500 to-blue-500"
       },
       {
-        title: "Ethical Hacking Basics",
-        issuer: "Online Platform",
-        date: "2024",
+        title: "All the beginner and intermediate certifications",
+        issuer: "Kaggle",
+        date: "2025",
         icon: "🔐",
         color: "from-red-500 to-orange-500"
+      },
+            {
+        title: "Beginner and Intermediate SQL Certifications",
+        issuer: "HackerRank",
+        date: "2025",
+        icon: "📊",
+        color: "from-cyan-500 to-blue-500"
       },
       // Add your real certifications here
     ]
@@ -34,9 +41,9 @@ const achievementsData = [
         color: "from-yellow-500 to-orange-500"
       },
       {
-        title: "Top 10% in College Coding Contest",
-        issuer: "Sri Eshwar College",
-        date: "2024",
+        title: "400+ Leetcode Problems Solved",
+        issuer: "LeetCode",
+        date: "2026",
         icon: "⚡",
         color: "from-purple-500 to-pink-500"
       },
