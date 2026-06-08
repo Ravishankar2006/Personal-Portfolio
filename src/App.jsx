@@ -13,7 +13,6 @@ import ProfileIntro from './components/sections/ProfileIntro';
 import Achievements from './components/sections/Achievements';
 
 // Layout
-import SettingsPanel from "./components/layout/SettingsPanel";
 import MobileMenu from "./components/layout/MobileMenu";
 
 // UI Components
@@ -56,7 +55,6 @@ function App() {
           
           {/* Layout Components */}
           <FloatingNav />
-          <SettingsPanel />
           <MobileMenu />
           <PageTransition />
 
@@ -84,7 +82,7 @@ function App() {
             </div>
           </section>
 
-          <section id="skills">
+          <section id="stats">
             <SocialProof />
           </section>
 

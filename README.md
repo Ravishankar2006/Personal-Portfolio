@@ -57,11 +57,9 @@ Core Features:
   -> Smooth scroll and scroll-based animations
 
   -> Floating right-side dot navigation with active section tracking
-
-  -> Modern settings panel (reduce motion, high contrast)
   
 Project Structure:
-
+ 
 src/
 ├── components/
 │   ├── sections/
@@ -74,8 +72,7 @@ src/
 │   │   ├── Achievements.jsx
 │   │   └── Contact.jsx
 │   ├── layout/
-│   │   ├── FloatingNav.jsx
-│   │   └── SettingsPanel.jsx
+│   │   └── FloatingNav.jsx
 │   ├── effects/
 │   │   ├── Enhancements.jsx
 │   │   └── SmoothScroll.jsx

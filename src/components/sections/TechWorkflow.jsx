@@ -21,7 +21,8 @@ const workflowData = [
     tools: [
       { name: "Figma", description: "UI/UX design" },
       { name: "Tailwind CSS", description: "Styling framework" },
-      { name: "Framer Motion", description: "Animations" }
+      { name: "Framer Motion", description: "Animations" },
+      { name: "Canva", description: "Graphic design" }
     ]
   },
   {
@@ -42,6 +43,7 @@ const workflowData = [
     tools: [
       { name: "Android Studio", description: "Android development" },
       { name: "React Native", description: "Cross-platform" },
+      { name: "Flutter", description: "Cross-platform development" },
       { name: "Firebase", description: "Backend services" }
     ]
   }

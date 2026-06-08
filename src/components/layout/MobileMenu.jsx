@@ -6,7 +6,7 @@ import { soundManager } from "../../utils/sounds";
 const navItems = [
   { label: "Home", id: "hero", icon: "🏠" },
   { label: "Journey", id: "timeline", icon: "📍" },
-  { label: "Skills", id: "tech", icon: "⚡" },
+  { label: "Stats", id: "stats", icon: "📊" },
   { label: "Projects", id: "projects", icon: "🚀" },
   { label: "Contact", id: "contact", icon: "💬" },
 ];

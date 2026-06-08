@@ -8,7 +8,7 @@ const sections = [
   { id: "workflow", label: "Workflow", icon: "⚙️" },
   { id: "projects", label: "Projects", icon: "🚀" },
   { id: "terminal", label: "Terminal", icon: "💻" },
-  { id: "skills", label: "Skills", icon: "🧠" },
+  { id: "stats", label: "Stats", icon: "📊" },
   { id: "achievements", label: "Achievements", icon: "🏆" },
   { id: "contact", label: "Contact", icon: "📧" }
 ];

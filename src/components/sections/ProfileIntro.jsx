@@ -229,7 +229,7 @@ const ProfileIntro = () => {
                 <img
                   src={profileImg}
                   alt="Ravi Shankar"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-500"
                 />
 
                 {/* Overlay gradient */}
