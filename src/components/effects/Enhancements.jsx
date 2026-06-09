@@ -238,26 +238,37 @@ export const CustomCursor = () => {
   );
 };
 
-// Animated Background Grid
 export const BackgroundGrid = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
-      <div className="absolute inset-0" style={{
+    <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Subtle Blueprint Grid Lines */}
+      <div className="absolute inset-0 flex justify-between px-[10%] md:px-[15%]">
+        <div className="w-[1px] h-full bg-zinc-900/30 border-r border-zinc-900/10" />
+        <div className="w-[1px] h-full bg-zinc-900/30 border-r border-zinc-900/10 hidden md:block" />
+        <div className="w-[1px] h-full bg-zinc-900/30 border-r border-zinc-900/10 hidden md:block" />
+        <div className="w-[1px] h-full bg-zinc-900/30 border-r border-zinc-900/10" />
+      </div>
+
+      {/* Dotted Matrix Background */}
+      <div className="absolute inset-0 bg-dot-matrix opacity-80" />
+
+      {/* Fine Linear Grid */}
+      <div className="absolute inset-0 opacity-15" style={{
         backgroundImage: `
-          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
+          linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)
         `,
-        backgroundSize: '50px 50px'
+        backgroundSize: '80px 80px'
       }} />
       
       {/* Scan line */}
       <motion.div
-        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
         animate={{
           top: ['0%', '100%']
         }}
         transition={{
-          duration: 8,
+          duration: 12,
           repeat: Infinity,
           ease: "linear"
         }}

@@ -75,10 +75,14 @@ const Terminal = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl"
+        className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl relative"
       >
+        {/* CRT Overlay Effects */}
+        <div className="terminal-scanlines" />
+        <div className="terminal-crt-glass" />
+
         {/* Terminal Header */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800 border-b border-zinc-700">
+        <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800 border-b border-zinc-700 relative z-20">
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-zinc-700" />
             <div className="w-3 h-3 rounded-full bg-zinc-700" />
@@ -88,7 +92,7 @@ const Terminal = () => {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-4 font-mono text-sm space-y-2 min-h-[320px]">
+        <div className="p-4 font-mono text-sm space-y-2 min-h-[320px] relative z-20">
           {commands.slice(0, currentLine).map((item, i) => (
             <div key={i} className="space-y-1">
               <div className="text-zinc-400">
