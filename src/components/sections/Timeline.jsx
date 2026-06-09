@@ -70,7 +70,7 @@ const Timeline = () => {
       ref={containerRef}
       className="min-h-screen py-20 px-6 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/2 to-transparent" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -85,7 +85,7 @@ const Timeline = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            className="text-cyan-400 text-sm uppercase tracking-widest mb-4"
+            className="text-zinc-500 text-sm uppercase tracking-widest mb-4"
           >
             MY JOURNEY
           </motion.p>
@@ -95,7 +95,7 @@ const Timeline = () => {
             viewport={{ once: false }}
             className="text-4xl md:text-5xl font-bold"
           >
-            <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-white">
               Education Timeline
             </span>
           </motion.h2>
@@ -107,7 +107,7 @@ const Timeline = () => {
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/10 transform md:-translate-x-1/2">
             <motion.div
               style={{ scaleY: lineHeight }}
-              className="w-full h-full bg-gradient-to-b from-cyan-500 via-fuchsia-500 to-cyan-500 origin-top"
+              className="w-full h-full bg-zinc-800 origin-top"
             />
           </div>
 
@@ -132,11 +132,10 @@ const Timeline = () => {
                   <div className="absolute left-4 md:left-1/2 top-8 transform -translate-x-1/2 md:-translate-x-1/2 z-10">
                     <div className="relative flex items-center justify-center">
                       {/* Ripple effects */}
-                      <span className="absolute inline-flex h-8 w-8 rounded-full bg-cyan-400 opacity-75 animate-ping" />
-                      <span className="absolute inline-flex h-6 w-6 rounded-full bg-fuchsia-400 opacity-50 animate-ping animation-delay-300" />
+                      <span className="absolute inline-flex h-8 w-8 rounded-full bg-white opacity-20 animate-ping" />
                       
                       {/* Main dot */}
-                      <span className="relative inline-flex h-4 w-4 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 shadow-lg shadow-cyan-500/50" />
+                      <span className="relative inline-flex h-4 w-4 rounded-full bg-white shadow-lg shadow-white/50" />
                     </div>
                   </div>
 
@@ -149,7 +148,7 @@ const Timeline = () => {
                       transition={{ delay: 0.5, type: "spring" }}
                       className="absolute left-12 md:left-1/2 top-4 transform md:-translate-x-1/2 z-20"
                     >
-                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full shadow-lg">
+                      <span className="inline-flex items-center gap-1 px-3 py-1 bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-semibold rounded-full shadow-lg">
                         <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                         CURRENT
                       </span>
@@ -169,10 +168,10 @@ const Timeline = () => {
                   >
                     <motion.div
                       onClick={() => toggleExpand(index)}
-                      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer hover:border-cyan-500/50 transition-all duration-300 group relative overflow-hidden"
+                      className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer hover:border-white/30 transition-all duration-300 group relative overflow-hidden"
                     >
                       {/* Hover glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
                       {/* Grid pattern overlay */}
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -180,18 +179,18 @@ const Timeline = () => {
                       <div className="relative">
                         {/* Year */}
                         <motion.p
-                          className="text-cyan-400 text-lg font-bold mb-2"
+                          className="text-zinc-400 font-mono text-sm font-bold mb-2"
                         >
                           {item.year}
                         </motion.p>
 
                         {/* Title */}
-                        <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-cyan-400 transition-colors">
+                        <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-zinc-300 transition-colors">
                           {item.title}
                         </h3>
 
                         {/* Institution */}
-                        <p className="text-zinc-400 font-medium mb-3">
+                        <p className="text-zinc-500 font-medium mb-3">
                           {item.institution}
                         </p>
 
@@ -219,8 +218,8 @@ const Timeline = () => {
                                 transition={{ delay: idx * 0.1 }}
                                 className="flex items-start gap-2"
                               >
-                                <span className="text-cyan-400 mt-1">→</span>
-                                <span className="text-zinc-400 text-sm">
+                                <span className="text-zinc-500 mt-1">→</span>
+                                <span className="text-zinc-500 text-sm">
                                   {detail}
                                 </span>
                               </motion.div>
@@ -231,7 +230,7 @@ const Timeline = () => {
                         {/* Expand indicator */}
                         <motion.div
                           animate={{ rotate: isExpanded ? 180 : 0 }}
-                          className="absolute bottom-4 right-4 text-cyan-400"
+                          className="absolute bottom-4 right-4 text-zinc-500"
                         >
                           <svg
                             className="w-5 h-5"

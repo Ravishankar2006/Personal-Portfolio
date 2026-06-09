@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const sections = [
-  { id: "profile", label: "Profile", icon: "👤" },
-  { id: "timeline", label: "Timeline", icon: "📚" },
-  { id: "workflow", label: "Workflow", icon: "⚙️" },
-  { id: "projects", label: "Projects", icon: "🚀" },
-  { id: "terminal", label: "Terminal", icon: "💻" },
-  { id: "stats", label: "Stats", icon: "📊" },
-  { id: "achievements", label: "Achievements", icon: "🏆" },
-  { id: "contact", label: "Contact", icon: "📧" }
+  { id: "profile", label: "Profile" },
+  { id: "timeline", label: "Timeline" },
+  { id: "workflow", label: "Workflow" },
+  { id: "projects", label: "Projects" },
+  { id: "terminal", label: "Terminal" },
+  { id: "stats", label: "Stats" },
+  { id: "achievements", label: "Achievements" },
+  { id: "contact", label: "Contact" }
 ];
 
 const FloatingNav = () => {
@@ -77,7 +77,7 @@ const FloatingNav = () => {
                     }}
                     className={`w-4 h-4 rounded-full transition-all duration-300 ${
                       isActive
-                        ? "bg-gradient-to-r from-cyan-500 to-fuchsia-500 shadow-lg shadow-cyan-500/50"
+                        ? "bg-white shadow-lg shadow-white/50"
                         : "bg-white/20 hover:bg-white/40"
                     }`}
                   />
@@ -87,7 +87,7 @@ const FloatingNav = () => {
                     <motion.div
                       animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0 rounded-full bg-cyan-500"
+                      className="absolute inset-0 rounded-full bg-white"
                     />
                   )}
                 </motion.button>

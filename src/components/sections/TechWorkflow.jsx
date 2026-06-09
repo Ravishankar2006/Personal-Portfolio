@@ -5,8 +5,6 @@ import { useState } from "react";
 const workflowData = [
   {
     category: "Development",
-    icon: "💻",
-    color: "from-cyan-400 to-blue-500",
     tools: [
       { name: "VS Code", description: "Primary code editor" },
       { name: "Git/GitHub", description: "Version control" },
@@ -16,8 +14,6 @@ const workflowData = [
   },
   {
     category: "Design",
-    icon: "🎨",
-    color: "from-purple-400 to-pink-500",
     tools: [
       { name: "Figma", description: "UI/UX design" },
       { name: "Tailwind CSS", description: "Styling framework" },
@@ -27,8 +23,6 @@ const workflowData = [
   },
   {
     category: "Backend",
-    icon: "⚙️",
-    color: "from-green-400 to-emerald-500",
     tools: [
       { name: "Spring Boot", description: "Java framework" },
       { name: "MySQL", description: "Database" },
@@ -38,8 +32,6 @@ const workflowData = [
   },
   {
     category: "Mobile",
-    icon: "📱",
-    color: "from-yellow-400 to-orange-500",
     tools: [
       { name: "Android Studio", description: "Android development" },
       { name: "React Native", description: "Cross-platform" },
@@ -55,7 +47,7 @@ const TechWorkflow = () => {
   return (
     <section className="min-h-screen py-20 px-6 relative overflow-hidden">
       {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-green-500/3 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/1 to-transparent" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -70,7 +62,7 @@ const TechWorkflow = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-cyan-400 text-sm uppercase tracking-widest mb-4"
+            className="text-zinc-500 text-sm uppercase tracking-widest mb-4"
           >
             DEVELOPMENT SETUP
           </motion.p>
@@ -80,7 +72,7 @@ const TechWorkflow = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold"
           >
-            <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-white">
               Tech Workflow
             </span>
           </motion.h2>
@@ -94,13 +86,12 @@ const TechWorkflow = () => {
               onClick={() => setActiveTab(idx)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 activeTab === idx
-                  ? `bg-gradient-to-r ${workflow.color} text-white shadow-lg`
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-zinc-400 hover:border-white/30"
+                  ? "bg-white text-black border border-white shadow-md shadow-white/10"
+                  : "bg-zinc-900/40 border border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
               }`}
             >
-              <span className="text-xl">{workflow.icon}</span>
               {workflow.category}
             </motion.button>
           ))}
@@ -117,7 +108,7 @@ const TechWorkflow = () => {
           {/* Card */}
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
             {/* Subtle hover effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative">
               {/* Tools Grid */}
@@ -132,10 +123,10 @@ const TechWorkflow = () => {
                     className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 group/tool"
                   >
                     {/* Icon dot */}
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${workflowData[activeTab].color} mt-2 group-hover/tool:scale-150 transition-transform duration-300`} />
+                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-400 mt-2 group-hover/tool:scale-150 group-hover/tool:bg-white transition-all duration-300" />
                     
                     <div className="flex-1">
-                      <h4 className="font-semibold text-white mb-1 group-hover/tool:text-cyan-400 transition-colors">
+                      <h4 className="font-semibold text-white mb-1 group-hover/tool:text-white transition-colors">
                         {tool.name}
                       </h4>
                       <p className="text-sm text-zinc-400">
@@ -158,7 +149,7 @@ const TechWorkflow = () => {
           className="text-center mt-8"
         >
           <p className="text-zinc-500 text-sm">
-            Tools I use daily to build amazing projects ⚡
+            Tools I use daily to build amazing projects.
           </p>
         </motion.div>
       </motion.div>

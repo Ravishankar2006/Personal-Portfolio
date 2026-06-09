@@ -3,14 +3,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { label: "Projects Built", value: 5, suffix: "+", icon: "🚀", color: "from-cyan-400 to-blue-500" },
-  { label: "Technologies", value: 10, suffix: "+", icon: "⚡", color: "from-yellow-400 to-orange-500" },
-  { label: "Lines of Code", value: 10, suffix: "K+", icon: "💻", color: "from-purple-400 to-pink-500" },
-  { label: "Coffee Consumed", value: "∞", suffix: "", icon: "☕", color: "from-amber-400 to-red-500" }
+  { label: "Projects Built", value: 5, suffix: "+" },
+  { label: "Technologies", value: 10, suffix: "+" },
+  { label: "Lines of Code", value: 10, suffix: "K+" },
+  { label: "Coffee Consumed", value: "∞", suffix: "" }
 ];
 
 // Animated counter with glitch effect
-const GlitchCounter = ({ value, suffix, color }) => {
+const GlitchCounter = ({ value, suffix }) => {
   const [count, setCount] = useState(() => typeof value === 'string' ? value : 0);
   const [isGlitching, setIsGlitching] = useState(false);
   const ref = useRef(null);
@@ -55,28 +55,28 @@ const GlitchCounter = ({ value, suffix, color }) => {
 
   return (
     <span ref={ref} className="relative inline-block">
-      <span className={`relative z-10 bg-gradient-to-r ${color} bg-clip-text text-transparent`}>
+      <span className="relative z-10 text-white">
         {count}{suffix}
       </span>
       
       {isGlitching && (
         <>
           <span 
-            className="absolute top-0 left-0 text-red-500 z-0"
+            className="absolute top-0 left-0 text-zinc-500 z-0"
             style={{ transform: 'translate(-2px, 0)' }}
             aria-hidden="true"
           >
             {count}{suffix}
           </span>
           <span 
-            className="absolute top-0 left-0 text-cyan-400 z-0"
+            className="absolute top-0 left-0 text-zinc-400 z-0"
             style={{ transform: 'translate(0px, 0)' }}
             aria-hidden="true"
           >
             {count}{suffix}
           </span>
           <span 
-            className="absolute top-0 left-0 text-green-400 z-0"
+            className="absolute top-0 left-0 text-zinc-300 z-0"
             style={{ transform: 'translate(2px, 0)' }}
             aria-hidden="true"
           >
@@ -93,8 +93,8 @@ const SocialProof = () => {
     <section className="relative w-full bg-black text-white py-20 px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-zinc-800/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-zinc-900/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
@@ -120,12 +120,12 @@ const SocialProof = () => {
               className="group relative"
             >
               <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 h-full border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden shadow-2xl">
-                <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl`} />
+                <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
                 
                 <motion.div
                   className="absolute left-0 right-0 h-[2px] pointer-events-none"
                   style={{
-                    background: `linear-gradient(90deg, transparent, ${stat.color.includes('cyan') ? '#06b6d4' : stat.color.includes('yellow') ? '#facc15' : stat.color.includes('purple') ? '#a855f7' : '#f59e0b'}, transparent)`
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)"
                   }}
                   animate={{ 
                     top: ['-2px', '100%', '-2px']
@@ -137,24 +137,14 @@ const SocialProof = () => {
                     delay: index * 0.5
                   }}
                 />
-                
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
-                  className="relative z-10 text-4xl md:text-5xl mb-3 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
-                >
-                  {stat.icon}
-                </motion.div>
 
-                <div className="relative z-10 text-3xl md:text-4xl font-bold mb-2">
-                  <GlitchCounter value={stat.value} suffix={stat.suffix} color={stat.color} />
+                <div className="relative z-10 text-3xl md:text-4xl font-bold mb-2 pt-4">
+                  <GlitchCounter value={stat.value} suffix={stat.suffix} />
                 </div>
 
                 <div className="relative z-10 text-xs md:text-sm text-zinc-300 uppercase tracking-wider">
                   {stat.label}
                 </div>
-
-                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-20 rounded-bl-full transition-opacity duration-300 blur-2xl`} />
                 
                 <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{
                   backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',

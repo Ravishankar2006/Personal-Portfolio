@@ -3,11 +3,11 @@ import { motion, useInView } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const commands = [
-  { cmd: "whoami", output: "ravi_shankar" },
-  { cmd: "cat skills.txt", output: "Java | Spring Boot | React | Python | C/C++" },
-  { cmd: "ls projects/", output: "banking-core/  n-queen-viz/  delivery-logger/  ai-agent/" },
-  { cmd: "cat status.txt", output: "Status: Building sentient experiences 🚀" },
-  { cmd: "echo $PASSION", output: "Code with creativity and main-character energy ✨" }
+  { cmd: "about", output: "Ravi Shankar - Computer Science Engineering Student. Passionate about Full Stack Development & UI/UX design." },
+  { cmd: "skills", output: "Frontend: React, JavaScript, Tailwind CSS, WebGL\nBackend: Spring Boot, MySQL, Node.js\nOther: Git, Docker, Android Studio" },
+  { cmd: "education", output: "Sri Eshwar College of Engineering - B.E. Computer Science Engineering (CGPA: 7.0)" },
+  { cmd: "contact", output: "Email: ravishankar.p2006@gmail.com\nGitHub: github.com/Ravishankar2006\nLinkedIn: linkedin.com/in/ravi-shankar-p-52594628a" },
+  { cmd: "help", output: "Available commands:\n  about       - Brief intro\n  skills      - Tech stack overview\n  education   - Academic background\n  contact     - Social links\n  clear       - Clear screen\n  help        - Show this menu" }
 ];
 
 const Terminal = () => {
@@ -36,7 +36,7 @@ const Terminal = () => {
     if (currentLine >= commands.length) return;
 
     const command = commands[currentLine];
-    const fullText = `$ ${command.cmd}`;
+    const fullText = command.cmd;
     
     if (displayedText.length < fullText.length) {
       const timeout = setTimeout(() => {
@@ -60,40 +60,54 @@ const Terminal = () => {
   }, []);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
-      transition={{ duration: 0.6 }}
-      className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl"
-    >
-      {/* Terminal Header */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800 border-b border-zinc-700">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <div className="w-3 h-3 rounded-full bg-green-500" />
+    <>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-zinc-500 text-sm uppercase tracking-widest mb-4 animate-pulse text-center"
+      >
+        INTERACTIVE SHELL
+      </motion.p>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.6 }}
+        className="w-full max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl"
+      >
+        {/* Terminal Header */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-zinc-800 border-b border-zinc-700">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-zinc-700" />
+            <div className="w-3 h-3 rounded-full bg-zinc-700" />
+            <div className="w-3 h-3 rounded-full bg-zinc-700" />
+          </div>
+          <span className="text-xs text-zinc-400 ml-2">guest@sentient-portfolio:~$</span>
         </div>
-        <span className="text-xs text-zinc-400 ml-2">ravi@portfolio ~ %</span>
-      </div>
 
-      {/* Terminal Body */}
-      <div className="p-4 font-mono text-sm space-y-2 min-h-[320px]">
-        {commands.slice(0, currentLine).map((item, i) => (
-          <div key={i} className="space-y-1">
-            <div className="text-cyan-400">$ {item.cmd}</div>
-            <div className="text-zinc-300 pl-2">{item.output}</div>
-          </div>
-        ))}
-        {currentLine < commands.length && (
-          <div className="text-cyan-400">
-            {displayedText}
-            {showCursor && <span className="bg-cyan-400 text-transparent">_</span>}
-          </div>
-        )}
-      </div>
-    </motion.div>
+        {/* Terminal Body */}
+        <div className="p-4 font-mono text-sm space-y-2 min-h-[320px]">
+          {commands.slice(0, currentLine).map((item, i) => (
+            <div key={i} className="space-y-1">
+              <div className="text-zinc-400">
+                <span className="text-zinc-500 font-bold mr-2">guest@sentient-portfolio:~$</span>
+                {item.cmd}
+              </div>
+              <div className="text-zinc-300 pl-2 whitespace-pre-line">{item.output}</div>
+            </div>
+          ))}
+          {currentLine < commands.length && (
+            <div className="text-zinc-300">
+              <span className="text-zinc-400 font-bold mr-2">guest@sentient-portfolio:~$</span>
+              {displayedText}
+              {showCursor && <span className="bg-zinc-500 text-transparent ml-1">_</span>}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </>
   );
 };
 

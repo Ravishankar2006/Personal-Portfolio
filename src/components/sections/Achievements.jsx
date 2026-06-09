@@ -15,17 +15,13 @@ const achievementsData = [
         title: "Mastering Data Structures & Algorithms using C and C++",
         issuer: "Udemy (Abdul Bari)",
         date: "May 18, 2025",
-        icon: "🎓",
-        image: dsaUdemy,
-        color: "from-cyan-500 to-blue-500"
+        image: dsaUdemy
       },
       {
         title: "MERN Stack Internship with Capstone Project",
         issuer: "Campus Aacharya",
         date: "Dec 19, 2025",
-        icon: "💻",
-        image: mernCampusAacharya,
-        color: "from-purple-500 to-pink-500"
+        image: mernCampusAacharya
       }
     ]
   },
@@ -36,9 +32,7 @@ const achievementsData = [
         title: "TechSprint Hackathon 2026 - Top 10 Teams",
         issuer: "GDG on Campus & SECE",
         date: "2026",
-        icon: "🏆",
-        image: techsprintGdg,
-        color: "from-yellow-500 to-orange-500"
+        image: techsprintGdg
       }
     ]
   }
@@ -50,7 +44,7 @@ const Achievements = () => {
 
   return (
     <section className="min-h-screen py-20 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-fuchsia-500/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/1 to-transparent" />
       
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -67,7 +61,7 @@ const Achievements = () => {
             viewport={{ once: false }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-white">
               Achievements & Certifications
             </span>
           </motion.h2>
@@ -90,10 +84,10 @@ const Achievements = () => {
               onClick={() => setActiveCategory(idx)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                 activeCategory === idx
-                  ? "bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white shadow-lg shadow-cyan-500/50"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-zinc-400 hover:border-cyan-500/50"
+                  ? "bg-white text-black border border-white shadow-md shadow-white/10"
+                  : "bg-zinc-900/40 border border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200"
               }`}
             >
               {cat.category}
@@ -122,7 +116,7 @@ const Achievements = () => {
             >
               {/* Scan line animation */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 animate-scan" />
+                <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 animate-scan" />
               </div>
 
               <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full hover:border-white/20 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
@@ -139,43 +133,33 @@ const Achievements = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-                      <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-cyan-400 border border-cyan-500/30 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span>🔍</span> View Full
+                      <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-md text-[11px] font-mono text-zinc-300 border border-zinc-800 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Full
                       </div>
                     </div>
                   )}
 
-                  {/* Header/Icon */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6 }}
-                      className={`text-3xl p-3 rounded-xl bg-gradient-to-r ${item.color} bg-opacity-10 flex items-center justify-center`}
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors line-clamp-2 leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-zinc-400 text-sm mt-0.5">{item.issuer}</p>
-                    </div>
+                  {/* Header */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-white group-hover:text-zinc-300 transition-colors line-clamp-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-zinc-500 text-sm mt-0.5">{item.issuer}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-zinc-500 mt-4">
-                  <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-pulse" />
+                <div className="flex items-center gap-2 text-xs text-zinc-500 mt-4 font-mono">
+                  <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-pulse" />
                   {item.date}
                 </div>
 
-                {/* Gradient border glow */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl -z-10`} />
+                {/* Subtle hover overlay */}
+                <div className="absolute inset-0 rounded-2xl bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Add more button */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -184,7 +168,7 @@ const Achievements = () => {
           className="text-center mt-12"
         >
           <p className="text-zinc-500 text-sm">
-            More achievements coming soon... 🚀
+            More achievements coming soon...
           </p>
         </motion.div>
       </motion.div>
@@ -210,11 +194,11 @@ const Achievements = () => {
               <img
                 src={selectedImage}
                 alt="Certificate"
-                className="max-w-full max-h-[85vh] rounded-xl object-contain border border-white/20 shadow-2xl shadow-cyan-500/20"
+                className="max-w-full max-h-[85vh] rounded-xl object-contain border border-white/20 shadow-2xl"
               />
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-14 right-0 text-white hover:text-cyan-400 font-semibold text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full backdrop-blur-md transition-colors"
+                className="absolute -top-14 right-0 text-white hover:text-white/80 font-semibold text-sm bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full backdrop-blur-md transition-colors"
               >
                 Close ×
               </button>

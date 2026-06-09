@@ -85,7 +85,7 @@ const FloatingParticles = () => {
       {particles.map((particle, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+          className="absolute w-1 h-1 bg-white/40 rounded-full"
           initial={{
             x: particle.startX,
             y: particle.startY,
@@ -136,9 +136,9 @@ const CodeSnippet = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
-        className="bg-black/40 backdrop-blur-sm border border-cyan-500/30 rounded-lg px-4 py-2 font-mono text-sm text-cyan-400"
+        className="bg-black/40 backdrop-blur-sm border border-zinc-800 rounded-lg px-4 py-2 font-mono text-sm text-zinc-300"
       >
-        <span className="text-fuchsia-400">{"> "}</span>
+        <span className="text-zinc-500">{"> "}</span>
         {snippets[currentSnippet]}
       </motion.div>
     </motion.div>
@@ -169,7 +169,7 @@ const ProfileIntro = () => {
 
   return (
     <section className="min-h-screen py-20 px-6 flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-transparent to-fuchsia-500/5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/10 via-transparent to-zinc-900/10" />
 
       {/* Code Snippet Decoration */}
       <CodeSnippet />
@@ -195,15 +195,11 @@ const ProfileIntro = () => {
               <FloatingParticles />
 
               {/* Glowing rings - multiple speeds */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-cyan-500 blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse" />
+              <div className="absolute inset-0 rounded-full bg-white blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
 
               {/* Rotating orbital rings */}
-              <div className="absolute -inset-2 rounded-full border-2 border-cyan-500/30 animate-spin-slow" />
-              <div className="absolute -inset-4 rounded-full border border-fuchsia-500/20 animate-spin-reverse" />
-              <div
-                className="absolute -inset-6 rounded-full border border-cyan-500/10"
-                style={{ animation: "spin-slow 15s linear infinite" }}
-              />
+              <div className="absolute -inset-2 rounded-full border border-zinc-800/50 animate-spin-slow" />
+              <div className="absolute -inset-4 rounded-full border border-zinc-900/50 animate-spin-reverse" />
 
               {/* Profile image container with 3D tilt */}
               <motion.div
@@ -214,15 +210,11 @@ const ProfileIntro = () => {
                   rotateY,
                   transformStyle: "preserve-3d",
                 }}
-                className="relative w-64 h-64 rounded-full overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 group-hover:border-cyan-500/50 transition-all duration-500"
+                className="relative w-64 h-64 rounded-full overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 group-hover:border-white/30 transition-all duration-500"
               >
                 {/* Hologram scan lines */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50 animate-scan" />
-                  <div
-                    className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-fuchsia-400 to-transparent opacity-30 animate-scan"
-                    style={{ animationDelay: "1.5s" }}
-                  />
+                  <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40 animate-scan" />
                 </div>
 
                 {/* Profile Image */}
@@ -255,15 +247,15 @@ const ProfileIntro = () => {
                 transition={{ delay: 0.5 }}
                 className="text-5xl md:text-6xl font-bold mb-2 relative"
               >
-                <span className="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent glitch">
+                <span className="text-white glitch">
                   <TypewriterText text="Ravi Shankar" />
                 </span>
 
                 {/* Constant Glitch effect layers */}
-                <span className="absolute inset-0 text-red-500 opacity-50 glitch-layer-1">
+                <span className="absolute inset-0 text-zinc-500 opacity-30 glitch-layer-1">
                   Ravi Shankar
                 </span>
-                <span className="absolute inset-0 text-cyan-500 opacity-50 glitch-layer-2">
+                <span className="absolute inset-0 text-zinc-300 opacity-20 glitch-layer-2">
                   Ravi Shankar
                 </span>
               </motion.h1>
@@ -292,14 +284,13 @@ const ProfileIntro = () => {
               className="text-lg text-zinc-300 leading-relaxed"
             >
               Computer Science Engineering student at{" "}
-              <span className="text-cyan-400 font-semibold">
+              <span className="text-white font-semibold">
                 Sri Eshwar College of Engineering
               </span>
               , passionate about building full-stack applications, exploring
               ethical hacking, and diving deep into algorithms and AI/ML.
             </motion.p>
 
-            {/* Animated Stats with Icons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -308,21 +299,20 @@ const ProfileIntro = () => {
               className="grid grid-cols-3 gap-4"
             >
               {[
-                { label: "CGPA", value: "7.0", icon: "🎓", suffix: "+" },
-                { label: "PROJECTS", value: "5", icon: "🚀", suffix: "+" },
-                { label: "SKILLS", value: "10", icon: "⚡", suffix: "+" },
+                { label: "CGPA", value: "7.0", suffix: "+" },
+                { label: "PROJECTS", value: "5", suffix: "+" },
+                { label: "SKILLS", value: "10", suffix: "+" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ y: -5, scale: 1.05 }}
-                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:border-cyan-500/50 transition-all duration-300 group relative overflow-hidden"
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:border-white/30 transition-all duration-300 group relative overflow-hidden"
                 >
                   {/* Hover gradient effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <div className="relative">
-                    <div className="text-3xl mb-2">{stat.icon}</div>
-                    <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent">
+                    <div className="text-2xl font-bold text-white">
                       <AnimatedCounter
                         value={stat.value}
                         suffix={stat.suffix}

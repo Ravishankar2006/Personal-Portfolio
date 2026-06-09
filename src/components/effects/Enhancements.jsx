@@ -13,7 +13,7 @@ export const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-purple-500 origin-left z-50"
+      className="fixed top-0 left-0 right-0 h-1 bg-white origin-left z-50"
       style={{ scaleX }}
     />
   );
@@ -68,13 +68,13 @@ export const LoadingScreen = ({ onComplete }) => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">
             RS
           </h1>
         </motion.div>
 
         {/* Typing text */}
-        <p className="text-cyan-400 font-mono text-sm md:text-base">
+        <p className="text-zinc-300 font-mono text-sm md:text-base">
           {displayText}
           <span className="animate-pulse">_</span>
         </p>
@@ -83,7 +83,7 @@ export const LoadingScreen = ({ onComplete }) => {
         <div className="w-64 md:w-80 mx-auto">
           <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500"
+              className="h-full bg-white"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -166,7 +166,6 @@ export const CustomCursor = () => {
       {trail.map((point, index) => {
         const progress = (index + 1) / trail.length;
         const size = 8 - (index * 0.35);
-        const isCyan = index % 2 === 0;
         
         return (
           <div
@@ -178,13 +177,9 @@ export const CustomCursor = () => {
               transform: 'translate(-50%, -50%)',
               width: `${size}px`,
               height: `${size}px`,
-              opacity: progress * 0.8,
-              background: isCyan 
-                ? `radial-gradient(circle, rgba(6,182,212,${progress}) 0%, rgba(6,182,212,0) 70%)`
-                : `radial-gradient(circle, rgba(217,70,239,${progress}) 0%, rgba(217,70,239,0) 70%)`,
-              boxShadow: isCyan
-                ? `0 0 ${10 * progress}px rgba(6,182,212,${progress * 0.8})`
-                : `0 0 ${10 * progress}px rgba(217,70,239,${progress * 0.8})`
+              opacity: progress * 0.6,
+              background: `radial-gradient(circle, rgba(255,255,255,${progress}) 0%, rgba(255,255,255,0) 70%)`,
+              boxShadow: `0 0 ${10 * progress}px rgba(255,255,255,${progress * 0.6})`
             }}
           />
         );
@@ -194,9 +189,9 @@ export const CustomCursor = () => {
       <svg className="fixed pointer-events-none z-[9996] top-0 left-0 w-full h-full">
         <defs>
           <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgb(6,182,212)" stopOpacity="0" />
-            <stop offset="50%" stopColor="rgb(217,70,239)" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="rgb(6,182,212)" stopOpacity="0" />
+            <stop offset="0%" stopColor="rgb(255,255,255)" stopOpacity="0" />
+            <stop offset="50%" stopColor="rgb(255,255,255)" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="rgb(255,255,255)" stopOpacity="0" />
           </linearGradient>
         </defs>
         {trail.length > 1 && (
@@ -205,7 +200,7 @@ export const CustomCursor = () => {
             stroke="url(#trailGradient)"
             strokeWidth="1.5"
             fill="none"
-            opacity="0.4"
+            opacity="0.3"
           />
         )}
       </svg>
@@ -221,18 +216,18 @@ export const CustomCursor = () => {
       >
         {/* Outer pulse ring */}
         <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/30 transition-all duration-200 ${
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 transition-all duration-200 ${
             isHovering ? 'w-12 h-12 animate-ping' : 'w-8 h-8'
           }`}
         />
         
         {/* Main dot */}
         <div
-          className={`rounded-full bg-gradient-to-r from-cyan-400 to-fuchsia-500 transition-all duration-200 ${
+          className={`rounded-full bg-white transition-all duration-200 ${
             isHovering ? 'w-10 h-10' : 'w-5 h-5'
           }`}
           style={{
-            boxShadow: '0 0 20px rgba(6,182,212,0.8), 0 0 40px rgba(217,70,239,0.6), 0 0 60px rgba(6,182,212,0.4)'
+            boxShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4)'
           }}
         />
         
@@ -249,15 +244,15 @@ export const BackgroundGrid = () => {
     <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
       <div className="absolute inset-0" style={{
         backgroundImage: `
-          linear-gradient(to right, rgba(6,182,212,0.1) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(6,182,212,0.1) 1px, transparent 1px)
+          linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)
         `,
         backgroundSize: '50px 50px'
       }} />
       
       {/* Scan line */}
       <motion.div
-        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"
+        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
         animate={{
           top: ['0%', '100%']
         }}

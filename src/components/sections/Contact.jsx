@@ -2,17 +2,17 @@
 import { motion } from "framer-motion";
 
 const contactLinks = [
-  { name: "GitHub", icon: "💻", url: "https://github.com/Ravishankar2006", color: "from-purple-500 to-pink-500" },
-  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/ravishankar-a-g", color: "from-blue-500 to-cyan-500" },
-  { name: "Email", icon: "📧", url: "mailto:ravishankar08062006@gmail.com", color: "from-red-500 to-orange-500" },
-  { name: "Twitter", icon: "🐦", url: "https://twitter.com/yourusername", color: "from-cyan-500 to-blue-500" }
+  { name: "GitHub", url: "https://github.com/Ravishankar2006" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/ravishankar-a-g" },
+  { name: "Email", url: "mailto:ravishankar08062006@gmail.com" },
+  { name: "Twitter", url: "https://twitter.com/yourusername" }
 ];
 
 const Contact = () => {
   return (
     <section className="relative w-full bg-black text-white py-20 px-6">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-800/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-4xl mx-auto">
@@ -23,7 +23,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-cyan-400 text-xs uppercase tracking-[0.3em] mb-3">
+          <p className="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-3">
             Get In Touch
           </p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
@@ -54,14 +54,14 @@ const Contact = () => {
                 className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-white/20 transition-all overflow-hidden"
               >
                 {/* Gradient glow */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${link.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl`} />
+                <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                <div className="relative z-10 flex items-center gap-4">
-                  <span className="text-4xl">{link.icon}</span>
+                <div className="relative z-10 flex items-center justify-between w-full">
                   <div>
-                    <h3 className="font-bold text-lg">{link.name}</h3>
+                    <h3 className="font-bold text-lg text-white group-hover:text-zinc-300 transition-colors">{link.name}</h3>
                     <p className="text-sm text-zinc-400">Connect with me</p>
                   </div>
+                  <span className="text-2xl text-zinc-500 group-hover:text-white transition-colors">→</span>
                 </div>
               </motion.a>
             ))}

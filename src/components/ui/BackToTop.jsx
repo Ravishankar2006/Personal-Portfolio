@@ -1,7 +1,7 @@
 // src/components/BackToTop.jsx
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { soundManager } from "D:/Projects/ReactJS/Portfolio/sentient-portfolio/src/utils/sounds.js";
+import { soundManager } from "../../utils/sounds";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,10 +37,10 @@ const BackToTop = () => {
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] transition-shadow"
+          className="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:bg-white hover:text-black hover:border-white flex items-center justify-center shadow-lg transition-all duration-300"
         >
           <svg
-            className="w-6 h-6 text-white"
+            className="w-6 h-6 text-current"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

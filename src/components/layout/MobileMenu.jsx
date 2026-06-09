@@ -4,11 +4,11 @@ import { useState } from "react";
 import { soundManager } from "../../utils/sounds";
 
 const navItems = [
-  { label: "Home", id: "hero", icon: "🏠" },
-  { label: "Journey", id: "timeline", icon: "📍" },
-  { label: "Stats", id: "stats", icon: "📊" },
-  { label: "Projects", id: "projects", icon: "🚀" },
-  { label: "Contact", id: "contact", icon: "💬" },
+  { label: "Home", id: "profile" },
+  { label: "Journey", id: "timeline" },
+  { label: "Stats", id: "stats" },
+  { label: "Projects", id: "projects" },
+  { label: "Contact", id: "contact" },
 ];
 
 const MobileMenu = () => {
@@ -39,20 +39,20 @@ const MobileMenu = () => {
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 7 : 0,
           }}
-          className="w-6 h-0.5 bg-cyan-400 transition-all"
+          className="w-6 h-0.5 bg-white transition-all"
         />
         <motion.span
           animate={{
             opacity: isOpen ? 0 : 1,
           }}
-          className="w-6 h-0.5 bg-cyan-400 transition-all"
+          className="w-6 h-0.5 bg-white transition-all"
         />
         <motion.span
           animate={{
             rotate: isOpen ? -45 : 0,
             y: isOpen ? -7 : 0,
           }}
-          className="w-6 h-0.5 bg-cyan-400 transition-all"
+          className="w-6 h-0.5 bg-white transition-all"
         />
       </motion.button>
 
@@ -92,9 +92,8 @@ const MobileMenu = () => {
                       transition={{ delay: index * 0.05 }}
                       onClick={() => scrollToSection(item.id)}
                       onMouseEnter={() => soundManager.playHover()}
-                      className="w-full flex items-center gap-3 p-4 rounded-xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-cyan-400/50 transition-all text-left"
+                      className="w-full flex items-center justify-between p-4 rounded-xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-white/50 transition-all text-left"
                     >
-                      <span className="text-2xl">{item.icon}</span>
                       <span className="text-white font-medium">
                         {item.label}
                       </span>

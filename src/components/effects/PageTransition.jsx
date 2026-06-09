@@ -28,7 +28,7 @@ const PageTransition = () => {
           animate={{ scaleY: 1 }}
           exit={{ scaleY: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[80] bg-gradient-to-br from-cyan-500 via-fuchsia-500 to-purple-500 origin-top"
+          className="fixed inset-0 z-[80] bg-zinc-900 origin-top"
         />
       )}
     </AnimatePresence>
