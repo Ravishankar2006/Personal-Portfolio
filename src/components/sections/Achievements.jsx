@@ -6,6 +6,11 @@ import { useState } from "react";
 import dsaUdemy from "../../assets/dsa_udemy.jpg";
 import mernCampusAacharya from "../../assets/mern_internship_campus_aacharya.jpg";
 import techsprintGdg from "../../assets/techsprint_gdg.png";
+import kaggleIntroML from "../../assets/kaggle_intro_ml.png";
+import kaggleIntermediateML from "../../assets/kaggle_intermediate_ml.png";
+import kaggleDeepLearning from "../../assets/kaggle_intro_deep_learning.png";
+import kagglePandas from "../../assets/kaggle_pandas.png";
+import kagglePython from "../../assets/kaggle_python.png";
 
 const achievementsData = [
   {
@@ -24,10 +29,34 @@ const achievementsData = [
         image: mernCampusAacharya
       },
       {
-        title: "Kaggle Certifications (Intermediate Level)",
+        title: "Python",
         issuer: "Kaggle",
-        date: "6 certificates",
-        image: null
+        date: "Feb 25, 2025",
+        image: kagglePython
+      },
+      {
+        title: "Intro to Machine Learning",
+        issuer: "Kaggle",
+        date: "Mar 2, 2025",
+        image: kaggleIntroML
+      },
+      {
+        title: "Pandas",
+        issuer: "Kaggle",
+        date: "Mar 14, 2025",
+        image: kagglePandas
+      },
+      {
+        title: "Intermediate Machine Learning",
+        issuer: "Kaggle",
+        date: "Jul 1, 2025",
+        image: kaggleIntermediateML
+      },
+      {
+        title: "Intro to Deep Learning",
+        issuer: "Kaggle",
+        date: "Sep 12, 2025",
+        image: kaggleDeepLearning
       }
     ]
   },
