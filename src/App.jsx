@@ -59,7 +59,6 @@ function App() {
           <PageTransition />
 
           {/* Content Sections */}
-          {/* <Hero started={started} onStart={handleStart} /> */}
           <section id="profile">
             <ProfileIntro />
           </section>

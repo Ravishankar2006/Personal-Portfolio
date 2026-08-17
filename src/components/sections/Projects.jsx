@@ -1,6 +1,5 @@
 // src/components/Projects.jsx
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const projectsData = [
   {
@@ -26,8 +25,6 @@ const projectsData = [
 ];
 
 const Projects = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
   return (
     <section className="relative w-full bg-black text-white py-20 px-6">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -56,8 +53,6 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               whileHover={{ y: -10 }}
               className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all cursor-pointer overflow-hidden card-border-trace"
             >

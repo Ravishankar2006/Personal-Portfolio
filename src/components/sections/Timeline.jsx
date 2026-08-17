@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 // src/components/sections/Timeline.jsx - ENHANCED VERSION
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useState, useRef } from "react";

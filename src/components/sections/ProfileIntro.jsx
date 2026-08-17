@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 // src/components/sections/ProfileIntro.jsx - COMPLETE VERSION
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
@@ -108,19 +107,19 @@ const FloatingParticles = () => {
 };
 
 // Code Snippet Decoration
-const CodeSnippet = () => {
-  const snippets = [
-    'const dev = "Ravi";',
-    'skills.push("React");',
-    "while(learning) { code(); }",
-    "const passion = Infinity;",
-  ];
+const codeSnippets = [
+  'const dev = "Ravi";',
+  'skills.push("React");',
+  "while(learning) { code(); }",
+  "const passion = Infinity;",
+];
 
+const CodeSnippet = () => {
   const [currentSnippet, setCurrentSnippet] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSnippet((prev) => (prev + 1) % snippets.length);
+      setCurrentSnippet((prev) => (prev + 1) % codeSnippets.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -139,7 +138,7 @@ const CodeSnippet = () => {
         className="bg-black/40 backdrop-blur-sm border border-zinc-800 rounded-lg px-4 py-2 font-mono text-sm text-zinc-300"
       >
         <span className="text-zinc-500">{"> "}</span>
-        {snippets[currentSnippet]}
+        {codeSnippets[currentSnippet]}
       </motion.div>
     </motion.div>
   );
