@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { label: "Projects Built", value: 5, suffix: "+" },
-  { label: "Technologies", value: 10, suffix: "+" },
-  { label: "Lines of Code", value: 10, suffix: "K+" },
-  { label: "Coffee Consumed", value: "∞", suffix: "" }
+  { label: "LeetCode Problems", value: 450, suffix: "+" },
+  { label: "LeetCode Rating", value: 1702, suffix: "" },
+  { label: "GitHub Contributions", value: 150, suffix: "+" },
+  { label: "Finished Projects", value: 6, suffix: "" }
 ];
 
 // Animated counter with glitch effect

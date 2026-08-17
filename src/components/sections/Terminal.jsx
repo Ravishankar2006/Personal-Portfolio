@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const commands = [
-  { cmd: "about", output: "Ravi Shankar - Computer Science Engineering Student. Passionate about Full Stack Development & UI/UX design." },
-  { cmd: "skills", output: "Frontend: React, JavaScript, Tailwind CSS, WebGL\nBackend: Spring Boot, MySQL, Node.js\nOther: Git, Docker, Android Studio" },
-  { cmd: "education", output: "Sri Eshwar College of Engineering - B.E. Computer Science Engineering (CGPA: 7.0)" },
-  { cmd: "contact", output: "Email: ravishankar.p2006@gmail.com\nGitHub: github.com/Ravishankar2006\nLinkedIn: linkedin.com/in/ravi-shankar-p-52594628a" },
+  { cmd: "about", output: "Ravi Shankar - Computer Science Engineering Student. A curious engineer always ready to learn new things in tech." },
+  { cmd: "skills", output: "Languages: C++, Dart, HTML, CSS, JS, Java, Python\nFrameworks: Flutter, ReactJS\nDatabases: MongoDB, MySQL, PostgreSQL, Firestore\nTools: VS Code, GitHub, AWS, Vercel, Render, Firebase" },
+  { cmd: "education", output: "Sri Eshwar College of Engineering - B.E. Computer Science Engineering (CGPA: 7.3)" },
+  { cmd: "contact", output: "Email: ravishankar08062006@gmail.com\nGitHub: github.com/Ravishankar2006\nLinkedIn: linkedin.com/in/ravishankar-a-g" },
   { cmd: "help", output: "Available commands:\n  about       - Brief intro\n  skills      - Tech stack overview\n  education   - Academic background\n  contact     - Social links\n  clear       - Clear screen\n  help        - Show this menu" }
 ];
 

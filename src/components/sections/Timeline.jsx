@@ -5,41 +5,39 @@ import { useState, useRef } from "react";
 const timelineData = [
   {
     year: "2025",
-    title: "Computer Science Engineering Student",
+    title: "B.E. Computer Science Engineering - 3rd Year / 5th Semester",
     institution: "Sri Eshwar College of Engineering",
-    description: "Building full-stack projects, exploring ethical hacking, and diving deep into discrete mathematics and algorithms.",
+    description: "Pursuing Computer Science Engineering with a CGPA of 7.3, building full-stack projects and diving deep into algorithms and AI/ML. Expected graduation: 2028.",
     status: "current",
     details: [
-      "Learning full-stack development with React, Spring Boot",
-      "Exploring cybersecurity and ethical hacking",
-      "Building AI/ML projects and algorithms",
-      "Participating in hackathons and coding competitions"
+      "CGPA: 7.3, Expected Graduation: 2028",
+      "Building full-stack projects with React, Flutter and Spring Boot",
+      "Exploring AI/ML and competitive programming",
+      "Leading and participating in hackathons"
     ]
   },
   {
-    year: "2022",
+    year: "2024",
     title: "12th Grade - CBSE",
     institution: "AKR Academy",
-    description: "Scored 352 marks with a cutoff of 132. Developed strong foundation in mathematics and computer science.",
+    description: "Scored 74%. Developed a strong foundation in mathematics and computer science.",
     status: "completed",
     details: [
-      "Scored 352/500 marks",
-      "Cutoff: 132",
+      "Score: 74%",
       "Strong foundation in Mathematics and Computer Science",
       "Participated in school coding events"
     ]
   },
   {
-    year: "2020",
+    year: "2022",
     title: "10th Grade - CBSE",
     institution: "AKR Academy",
-    description: "Scored 406 marks. Built foundational knowledge in science and mathematics.",
+    description: "Scored 81%. Built foundational knowledge in science and mathematics.",
     status: "completed",
     details: [
-      "Scored 406/500 marks",
+      "Score: 81%",
       "Excellent performance in Mathematics",
-      "Developed interest in programming",
-      "Participated in science exhibitions"
+      "Developed interest in programming"
     ]
   }
 ];

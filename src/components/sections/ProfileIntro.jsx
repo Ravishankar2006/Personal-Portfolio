@@ -298,7 +298,7 @@ const ProfileIntro = () => {
               className="grid grid-cols-3 gap-4"
             >
               {[
-                { label: "CGPA", value: "7.0", suffix: "+" },
+                { label: "CGPA", value: "7.3", suffix: "" },
                 { label: "PROJECTS", value: "5", suffix: "+" },
                 { label: "SKILLS", value: "10", suffix: "+" },
               ].map((stat, idx) => (

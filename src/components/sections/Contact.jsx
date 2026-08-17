@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 const contactLinks = [
   { name: "GitHub", url: "https://github.com/Ravishankar2006" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/ravishankar-a-g" },
-  { name: "Email", url: "mailto:ravishankar08062006@gmail.com" },
-  { name: "Twitter", url: "https://twitter.com/yourusername" }
+  { name: "Email", url: "mailto:ravishankar08062006@gmail.com" }
 ];
 
 const Contact = () => {

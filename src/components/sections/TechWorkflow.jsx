@@ -4,39 +4,44 @@ import { useState } from "react";
 
 const workflowData = [
   {
-    category: "Development",
+    category: "Languages",
+    tools: [
+      { name: "C++", description: "Programming language" },
+      { name: "Java", description: "Programming language" },
+      { name: "Python", description: "Programming language" },
+      { name: "JavaScript", description: "Programming language" },
+      { name: "Dart", description: "Programming language" },
+      { name: "HTML/CSS", description: "Markup & styling" }
+    ]
+  },
+  {
+    category: "Frameworks",
+    tools: [
+      { name: "ReactJS", description: "Frontend library" },
+      { name: "Flutter", description: "Cross-platform mobile" },
+      { name: "Tailwind CSS", description: "Styling framework" },
+      { name: "Framer Motion", description: "Animations" }
+    ]
+  },
+  {
+    category: "Tools",
     tools: [
       { name: "VS Code", description: "Primary code editor" },
-      { name: "Git/GitHub", description: "Version control" },
+      { name: "GitHub", description: "Version control" },
       { name: "Postman", description: "API testing" },
-      { name: "Chrome DevTools", description: "Debugging" }
+      { name: "Android Studio", description: "Mobile development" },
+      { name: "AWS", description: "Cloud platform" },
+      { name: "Vercel / Render", description: "Deployment" },
+      { name: "Google Colab", description: "ML notebooks" }
     ]
   },
   {
-    category: "Design",
+    category: "Databases",
     tools: [
-      { name: "Figma", description: "UI/UX design" },
-      { name: "Tailwind CSS", description: "Styling framework" },
-      { name: "Framer Motion", description: "Animations" },
-      { name: "Canva", description: "Graphic design" }
-    ]
-  },
-  {
-    category: "Backend",
-    tools: [
-      { name: "Spring Boot", description: "Java framework" },
-      { name: "MySQL", description: "Database" },
-      { name: "Postman", description: "API testing" },
-      { name: "Docker", description: "Containerization" }
-    ]
-  },
-  {
-    category: "Mobile",
-    tools: [
-      { name: "Android Studio", description: "Android development" },
-      { name: "React Native", description: "Cross-platform" },
-      { name: "Flutter", description: "Cross-platform development" },
-      { name: "Firebase", description: "Backend services" }
+      { name: "MongoDB", description: "NoSQL database" },
+      { name: "MySQL", description: "Relational database" },
+      { name: "PostgreSQL", description: "Relational database" },
+      { name: "Firestore", description: "Firebase NoSQL database" }
     ]
   }
 ];

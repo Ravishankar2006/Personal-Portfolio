@@ -22,6 +22,12 @@ const achievementsData = [
         issuer: "Campus Aacharya",
         date: "Dec 19, 2025",
         image: mernCampusAacharya
+      },
+      {
+        title: "Kaggle Certifications (Intermediate Level)",
+        issuer: "Kaggle",
+        date: "6 certificates",
+        image: null
       }
     ]
   },
