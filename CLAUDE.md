@@ -67,6 +67,6 @@ Reduced motion is honoured in two layers: `tokens.css` zeroes the duration *toke
 - **ESLint's `react-hooks/set-state-in-effect` is on.** Derive at render instead of calling `setState` in an effect body (see `useCountUp`, `BootOverlay`).
 - **Images are two-size WebP** (`-thumb` 600w, `-full` 1600w). Thumbs render in cards; fulls load only in the `Lightbox`. Always add `loading="lazy" decoding="async"` and explicit `width`/`height`.
 
-## Outstanding
+## Static files
 
-`src/data/profile.js` has two links deliberately left blank rather than guessed: the **LeetCode profile URL** and a **résumé PDF** (drop it at `public/resume.pdf`). `Row` renders a blank `url` as non-linked text, so filling them in is the only step needed.
+`public/` is served at the site root: `resume.pdf`, `og.png`, `favicon.svg`. Reference these as root-relative paths (`/resume.pdf`) — do **not** `import` them the way `src/assets/` images are imported. Keep filenames URL-safe (no spaces or apostrophes).

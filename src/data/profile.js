@@ -13,19 +13,14 @@ export const profile = {
   ],
 };
 
-/**
- * Contact channels. `url: ""` renders as text-only (no link).
- *
- * TODO(owner): supply the LeetCode profile URL and drop a resume.pdf
- * into public/ — both are referenced but intentionally left blank
- * rather than guessed at.
- */
+/** Contact channels. A blank `url` renders as text-only (no link). */
 export const contact = {
   email: "ravishankar08062006@gmail.com",
   links: [
     { label: "GitHub", handle: "@Ravishankar2006", url: "https://github.com/Ravishankar2006" },
     { label: "LinkedIn", handle: "ravishankar-a-g", url: "https://www.linkedin.com/in/ravishankar-a-g" },
-    { label: "LeetCode", handle: "1702 · top 13%", url: "" },
-    { label: "Résumé", handle: "PDF", url: "" },
+    { label: "LeetCode", handle: "@ravishankar_ag · 1702", url: "https://leetcode.com/u/ravishankar_ag/" },
+    // Served from public/, so the path is root-relative, not an import.
+    { label: "Résumé", handle: "PDF · 1 page", url: "/resume.pdf" },
   ],
 };
