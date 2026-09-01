@@ -16,7 +16,7 @@ export default function ConstructionGrid() {
   const scan = !reduced && enabled;
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 lg:pl-28">
       {/* Column rules on the content container's own geometry */}
       <div className="mx-auto flex h-full max-w-page justify-between px-gutter">
         {Array.from({ length: 5 }).map((_, i) => (

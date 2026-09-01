@@ -156,7 +156,12 @@ export default function CommandBar() {
         onSubmit={submit}
         className="relative z-20 flex items-center gap-2 border-t-2 border-rule px-3 py-2"
       >
-        <label htmlFor="cmd" className="font-mono text-[12px] text-acc">
+        {/* shrink-0 + nowrap: the full-width input otherwise squeezes the
+            prompt and breaks "~ $" across two lines. */}
+        <label
+          htmlFor="cmd"
+          className="shrink-0 whitespace-nowrap font-mono text-[12px] text-acc"
+        >
           ~ $
         </label>
         <input

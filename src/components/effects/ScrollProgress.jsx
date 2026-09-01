@@ -39,7 +39,9 @@ export default function ScrollProgress() {
         style={{ scaleX }}
         className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-acc"
       />
-      <div className="pointer-events-none fixed right-gutter top-4 z-[60] hidden font-mono text-micro uppercase tabular-nums text-paper-3 sm:block">
+      {/* lg, not sm: the mobile hamburger occupies this corner until lg,
+          and at sm the two overlapped. */}
+      <div className="pointer-events-none fixed right-gutter top-4 z-[60] hidden font-mono text-micro uppercase tabular-nums text-paper-3 lg:block">
         {sections[active].num} <span className="text-rule-2">/</span> {total}
       </div>
     </>

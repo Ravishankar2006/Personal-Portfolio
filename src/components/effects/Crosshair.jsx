@@ -115,9 +115,12 @@ export default function Crosshair() {
         className="absolute left-0 top-0 h-6 w-6 border border-acc opacity-0"
         style={{ willChange: "transform" }}
       />
+      {/* Solid chip, not bare text: the readout passes over inverted
+          (white) rows, where cyan is 1.41:1 and unreadable. The black
+          ground keeps it at 14.91:1 everywhere. */}
       <span
         ref={readRef}
-        className="absolute left-0 top-0 font-mono text-[10px] uppercase tracking-widest text-acc opacity-0"
+        className="absolute left-0 top-0 bg-ink-0 px-1 py-0.5 font-mono text-[10px] uppercase tracking-widest text-acc opacity-0"
         style={{ willChange: "transform" }}
       />
     </div>

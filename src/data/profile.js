@@ -1,5 +1,9 @@
 export const profile = {
   name: "Ravishankar A.G",
+  // Set as a deliberate two-line lockup in the masthead. At display size
+  // "Ravishankar" is wider than the container on its own, so leaving it
+  // to wrap broke it mid-word ("RAVISHANKA / RA.G").
+  nameLines: ["Ravishankar", "A.G"],
   initials: "RS",
   role: "Computer Science Engineer",
   location: "Tiruppur, Tamil Nadu",

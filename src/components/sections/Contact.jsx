@@ -32,9 +32,13 @@ export default function Contact() {
   return (
     <Section id="contact" num="05" kicker="Contact" title="Let's build something">
       <motion.div {...enterUp(reduced)}>
+        {/* Sized to fit the address on ONE line at desktop — at text-h2 it
+            wrapped to "...@GMAIL." / "COM", orphaning the TLD. The clamp
+            floor still fits a 320px viewport, where wrapping is
+            unavoidable and `anywhere` is the right behaviour. */}
         <a
           href={`mailto:${contact.email}`}
-          className="block font-display text-h2 font-black uppercase text-paper transition-colors duration-fast ease-snap hover:text-acc"
+          className="block font-display text-[clamp(1.25rem,4.2vw,3.25rem)] font-black uppercase leading-none tracking-tight text-paper transition-colors duration-fast ease-snap hover:text-acc"
           style={{ overflowWrap: "anywhere" }}
         >
           {contact.email}

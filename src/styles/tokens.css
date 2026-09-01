@@ -61,7 +61,10 @@
   --font-body: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --fs-mega: clamp(3.5rem, 14vw, 11rem);
+  /* Sized so the longest masthead line ("RAVISHANKAR", set nowrap) fits
+     without overflowing at any width down to 320px. 12vw overflowed a
+     485px viewport by 5px; 10.5vw clears it with margin to spare. */
+  --fs-mega: clamp(1.75rem, 10.5vw, 9.5rem);
   --fs-h1: clamp(2.5rem, 8vw, 6rem);
   --fs-h2: clamp(2rem, 5.5vw, 4rem);
   --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);

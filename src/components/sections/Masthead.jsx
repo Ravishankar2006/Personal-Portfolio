@@ -35,30 +35,34 @@ export default function Masthead() {
         {/* Name as specimen */}
         <motion.h1
           {...enterUp(reduced)}
-          className="relative font-display text-mega font-black uppercase text-paper"
-          style={{ overflowWrap: "anywhere" }}
+          className="font-display text-mega font-black uppercase text-paper"
         >
-          <span className="relative z-10">{profile.name}</span>
+          {/* A deliberate two-line lockup, one relative block per line so
+              the misregistration layers stack per line rather than over
+              the whole heading. */}
+          <span className="sr-only">{profile.name}</span>
+          {profile.nameLines.map((lineText) => (
+            <span
+              key={lineText}
+              aria-hidden="true"
+              className="relative block whitespace-nowrap"
+            >
+              <span className="relative z-10">{lineText}</span>
 
-          {/* Offset-print misregistration. Fires in short bursts on a
-              long interval rather than looping forever — a permanently
-              glitching name hurts readability. */}
-          {glitch && (
-            <>
-              <span
-                aria-hidden="true"
-                className="misregister-a absolute inset-0 z-0 text-acc"
-              >
-                {profile.name}
-              </span>
-              <span
-                aria-hidden="true"
-                className="misregister-b absolute inset-0 z-0 text-paper-3"
-              >
-                {profile.name}
-              </span>
-            </>
-          )}
+              {/* Offset-print misregistration — short bursts on a long
+                  interval, not a permanent loop, which hurts readability. */}
+              {glitch && (
+                <>
+                  <span className="misregister-a absolute inset-0 z-0 text-acc">
+                    {lineText}
+                  </span>
+                  <span className="misregister-b absolute inset-0 z-0 text-paper-3">
+                    {lineText}
+                  </span>
+                </>
+              )}
+            </span>
+          ))}
         </motion.h1>
 
         <motion.div

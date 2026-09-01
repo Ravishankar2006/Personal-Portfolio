@@ -36,7 +36,11 @@ function App() {
       <IndexRail />
       <MobileMenu />
 
-      <main id="main" className="relative z-10">
+      {/* lg:pl-28 reserves the left gutter the IndexRail occupies — the
+          rail is fixed at left-0 and would otherwise sit on top of the
+          content. ConstructionGrid carries the same offset so the visible
+          grid stays aligned to the real content grid. */}
+      <main id="main" className="relative z-10 lg:pl-28">
         <Masthead />
         <Work />
         <Proof />
