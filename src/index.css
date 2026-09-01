@@ -117,6 +117,29 @@ textarea {
   animation: scan 3s linear infinite;
 }
 
+/* Marquee — translate the duplicated track by exactly half its width so
+   the loop is seamless. Paused on hover so the list stays readable.
+   The reduced-motion fallback is a STATIC WRAPPED LIST rendered by the
+   component itself, not a paused transform (a transform frozen mid-run
+   can strand the track off-screen). */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--dur-marquee) linear infinite;
+  will-change: transform;
+}
+
+.group:hover > .marquee-track {
+  animation-play-state: paused;
+}
+
 /* Offset-print misregistration — the glitch, re-cut.
    steps() so it SNAPS between positions rather than easing, and it
    fires in a short burst on a long interval instead of looping
