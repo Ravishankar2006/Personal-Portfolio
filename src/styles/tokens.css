@@ -1,0 +1,111 @@
+/* ============================================================
+   DESIGN TOKENS — brutalist / Swiss, one accent
+   Single source of truth. Nothing below this file hardcodes a
+   colour, size, duration or curve.
+   ============================================================ */
+
+:root {
+  /* ── Ground ─────────────────────────────────────────────── */
+  --ink-0: #000000; /* page */
+  --ink-1: #0a0a0a; /* panel */
+  --ink-2: #141414; /* inset / pressed / scanline */
+
+  /* ── Ink ────────────────────────────────────────────────────
+     FLOOR: no text tone below #8A8A8A ships.
+     zinc-500 (#71717A) is 4.35:1 and zinc-600 (#52525B) is 3.0:1
+     — both fail WCAG AA on black and are banned.               */
+  --paper: #ffffff;   /* primary        — 21.00:1 on --ink-0 */
+  --paper-2: #c4c4c4; /* secondary      — 12.04:1 */
+  --paper-3: #8a8a8a; /* tertiary/meta  —  6.08:1 */
+
+  /* ── Rules (non-text only) ──────────────────────────────── */
+  --rule: #2e2e2e;
+  --rule-2: #4d4d4d;
+
+  /* ── Accent — electric cyan ─────────────────────────────────
+     14.91:1 on --ink-0 (AAA, cleared for text)
+     14.91:1 for --acc-ink on an --acc fill (AAA)
+      1.41:1 on white — BANNED. The hover state is a white
+     inversion, so accent must never sit on it. See --focus-*.  */
+  --acc: #00f0ff;
+  --acc-ink: #000000;
+
+  /* ── Rule weights ───────────────────────────────────────── */
+  --w-hair: 1px; /* grid overlay, intra-block separator */
+  --w-1: 2px;    /* default panel border, section separator */
+  --w-2: 4px;    /* emphasis, active state, photo plate */
+  --w-3: 8px;    /* section top-slab, hero underline */
+  --radius: 0;   /* the only radius token. there is no rounded. */
+
+  /* ── Type ───────────────────────────────────────────────── */
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fs-mega: clamp(3.5rem, 14vw, 11rem);
+  --fs-h1: clamp(2.5rem, 8vw, 6rem);
+  --fs-h2: clamp(2rem, 5.5vw, 4rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-lead: clamp(1.0625rem, 1.6vw, 1.375rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-meta: 0.75rem;    /* mono, uppercase, tracked */
+  --fs-micro: 0.6875rem; /* mono labels only, never prose */
+
+  --lh-mega: 0.86;
+  --lh-h1: 0.92;
+  --lh-h2: 0.95;
+  --lh-body: 1.55;
+
+  /* ── Space (8px base, brutalist jumps) ──────────────────── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 40px;
+  --sp-6: 64px;
+  --sp-7: 96px;
+  --sp-8: 144px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --maxw: 1440px;
+
+  /* ── Motion ─────────────────────────────────────────────────
+     These are TOKENS specifically so the reduced-motion block
+     below reaches the JS/Framer side too, not just CSS.         */
+  --dur-instant: 90ms;  /* micro feedback */
+  --dur-fast: 160ms;    /* hover, inversion */
+  --dur-base: 280ms;    /* state change, panel */
+  --dur-slow: 520ms;    /* entrance */
+  --dur-wipe: 700ms;    /* overlay */
+  --dur-marquee: 40s;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);    /* entrances */
+  --ease-inout: cubic-bezier(0.76, 0, 0.24, 1); /* wipes, overlays */
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);      /* inversions */
+  --ease-step: steps(5, end);                   /* glitch, counters */
+
+  --stagger: 60ms; /* cap total stagger at 6 items = 360ms */
+
+  /* ── Focus ──────────────────────────────────────────────────
+     Two-tone by necessity: accent alone is 1.41:1 on white and
+     the primary hover state IS a white inversion, so a
+     single-colour ring goes invisible on every hovered row.
+     The black halo guarantees separation on any ground.         */
+  --focus-ring: var(--acc);
+  --focus-w: 3px;
+  --focus-offset: 3px;
+  --focus-halo: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms;
+    --dur-fast: 1ms;
+    --dur-base: 1ms;
+    --dur-slow: 1ms;
+    --dur-wipe: 1ms;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
