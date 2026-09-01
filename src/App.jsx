@@ -1,100 +1,50 @@
 // src/App.jsx
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import FloatingNav from './components/layout/FloatingNav';
-// Sections
-import Timeline from "./components/sections/Timeline";
-import Projects from "./components/sections/Projects";
-import SocialProof from "./components/sections/SocialProof";
-import TechWorkflow from "./components/sections/TechWorkflow";
-import Terminal from "./components/sections/Terminal";
-import Contact from "./components/sections/Contact";
-import ProfileIntro from './components/sections/ProfileIntro';
-import Achievements from './components/sections/Achievements';
-
-// Layout
+import SkipLink from "./components/ui/SkipLink";
+import IndexRail from "./components/layout/IndexRail";
 import MobileMenu from "./components/layout/MobileMenu";
 
-// UI Components
-import SkipLink from "./components/ui/SkipLink";
+import ScrollProgress from "./components/effects/ScrollProgress";
+import BootOverlay from "./components/effects/BootOverlay";
+import Crosshair from "./components/effects/Crosshair";
+import ConstructionGrid from "./components/effects/ConstructionGrid";
 
-// Effects
-import PageTransition from "./components/effects/PageTransition";
-import { SmoothScroll } from "./components/effects/SmoothScroll";
-import { 
-  ScrollProgress, 
-  LoadingScreen, 
-  CustomCursor,
-  BackgroundGrid 
-} from "./components/effects/Enhancements";
+import Masthead from "./components/sections/Masthead";
+import Work from "./components/sections/Work";
+import Proof from "./components/sections/Proof";
+import Stack from "./components/sections/Stack";
+import Record from "./components/sections/Record";
+import Contact from "./components/sections/Contact";
 
+/**
+ * Section order and ids are declared in src/data/sections.js, which the
+ * nav rail, mobile menu and hero command bar all read. Keep the JSX
+ * below in step with that list.
+ *
+ * The old blocking `{!loading && ...}` gate is gone: content renders
+ * immediately and BootOverlay wipes away on top of it, so LCP is no
+ * longer pinned to a hardcoded timer.
+ */
 function App() {
-
-  const [loading, setLoading] = useState(true);
-
-
-
   return (
-    <>
-      {/* Loading Screen */}
-      <AnimatePresence>
-        {loading && (
-          <LoadingScreen onComplete={() => setLoading(false)} />
-        )}
-      </AnimatePresence>
+    <div className="min-h-screen bg-ink-0">
+      <SkipLink />
+      <BootOverlay />
+      <ConstructionGrid />
+      <Crosshair />
+      <ScrollProgress />
 
-      {/* Main App */}
-      {!loading && (
-        <div className="bg-black min-h-screen">
-          {/* UI Enhancements */}
-          <SkipLink />
-          <SmoothScroll />
-          <ScrollProgress />
-          <CustomCursor />
-          <BackgroundGrid />
-          
-          {/* Layout Components */}
-          <FloatingNav />
-          <MobileMenu />
-          <PageTransition />
+      <IndexRail />
+      <MobileMenu />
 
-          {/* Content Sections */}
-          <section id="profile">
-            <ProfileIntro />
-          </section>
-
-          <section id="timeline">
-            <Timeline />
-          </section>
-
-          <section id="workflow">
-            <TechWorkflow />
-          </section>
-
-          <section id="projects">
-            <Projects />
-          </section>
-
-          <section id="terminal">
-            <div className="py-16 px-6">
-              <Terminal />
-            </div>
-          </section>
-
-          <section id="stats">
-            <SocialProof />
-          </section>
-
-          <section id="achievements">
-            <Achievements />
-          </section>
-
-          <section id="contact">
-            <Contact />
-          </section>
-        </div>
-      )}
-    </>
+      <main id="main" className="relative z-10">
+        <Masthead />
+        <Work />
+        <Proof />
+        <Stack />
+        <Record />
+        <Contact />
+      </main>
+    </div>
   );
 }
 

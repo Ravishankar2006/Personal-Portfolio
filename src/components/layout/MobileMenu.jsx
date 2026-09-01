@@ -1,118 +1,119 @@
-// src/components/MobileMenu.jsx
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { sections } from "../../data/sections";
+import { profile } from "../../data/profile";
 import { soundManager } from "../../utils/sounds";
+import { DUR, EASE } from "../../motion";
 
-const navItems = [
-  { label: "Home", id: "profile" },
-  { label: "Journey", id: "timeline" },
-  { label: "Stats", id: "stats" },
-  { label: "Projects", id: "projects" },
-  { label: "Contact", id: "contact" },
-];
+/**
+ * Mobile navigation.
+ *
+ * Now reads data/sections.js. The old hardcoded list held only 5 of the
+ * 8 sections, so three were simply unreachable on mobile.
+ *
+ * Also adds safe-area insets — the trigger was `fixed top-6 right-6`
+ * with no inset handling, which collides with notches and rounded
+ * corners.
+ */
+export default function MobileMenu() {
+  const reduced = useReducedMotion();
+  const [open, setOpen] = useState(false);
 
-const MobileMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // Lock scroll and wire Escape while the drawer is open.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
-  const scrollToSection = (id) => {
+  const go = (id) => {
     soundManager.playClick();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setOpen(false);
   };
 
   return (
     <>
-      {/* Hamburger Button */}
-      <motion.button
+      <button
         onClick={() => {
-          setIsOpen(!isOpen);
+          setOpen((v) => !v);
           soundManager.playClick();
         }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed top-6 right-6 z-[60] w-12 h-12 md:hidden flex flex-col items-center justify-center gap-1.5 bg-zinc-900 border border-zinc-800 rounded-xl shadow-lg"
+        aria-expanded={open}
+        aria-label={open ? "Close menu" : "Open menu"}
+        className="fixed z-[60] flex h-12 w-12 flex-col items-center justify-center gap-1.5 border-2 border-rule bg-ink-0 lg:hidden"
+        style={{
+          top: "calc(env(safe-area-inset-top, 0px) + 16px)",
+          right: "calc(env(safe-area-inset-right, 0px) + 16px)",
+        }}
       >
-        <motion.span
-          animate={{
-            rotate: isOpen ? 45 : 0,
-            y: isOpen ? 7 : 0,
-          }}
-          className="w-6 h-0.5 bg-white transition-all"
+        <span
+          className={`h-0.5 w-6 bg-paper transition-transform duration-fast ease-snap ${
+            open ? "translate-y-2 rotate-45" : ""
+          }`}
         />
-        <motion.span
-          animate={{
-            opacity: isOpen ? 0 : 1,
-          }}
-          className="w-6 h-0.5 bg-white transition-all"
+        <span
+          className={`h-0.5 w-6 bg-paper transition-opacity duration-fast ease-snap ${
+            open ? "opacity-0" : ""
+          }`}
         />
-        <motion.span
-          animate={{
-            rotate: isOpen ? -45 : 0,
-            y: isOpen ? -7 : 0,
-          }}
-          className="w-6 h-0.5 bg-white transition-all"
+        <span
+          className={`h-0.5 w-6 bg-paper transition-transform duration-fast ease-snap ${
+            open ? "-translate-y-2 -rotate-45" : ""
+          }`}
         />
-      </motion.button>
+      </button>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isOpen && (
+        {open && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[55] md:hidden"
+              transition={{ duration: reduced ? 0.001 : DUR.fast }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-[55] bg-ink-0/90 lg:hidden"
             />
-
-            {/* Menu Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-zinc-900 border-l border-zinc-800 z-[56] md:hidden"
+            <motion.nav
+              aria-label="Sections"
+              initial={reduced ? { opacity: 0 } : { x: "100%" }}
+              animate={reduced ? { opacity: 1 } : { x: 0 }}
+              exit={reduced ? { opacity: 0 } : { x: "100%" }}
+              transition={{ duration: reduced ? 0.001 : DUR.base, ease: EASE.inout }}
+              className="fixed bottom-0 right-0 top-0 z-[56] w-4/5 max-w-sm border-l-2 border-rule bg-ink-0 pt-24 lg:hidden"
             >
-              <div className="p-6 pt-20">
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Navigation
-                </h3>
-                <p className="text-xs text-zinc-500 mb-8">Jump to section</p>
-
-                <nav className="space-y-2">
-                  {navItems.map((item, index) => (
-                    <motion.button
-                      key={item.id}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={() => scrollToSection(item.id)}
+              <ul className="border-t-2 border-rule">
+                {sections.map((s) => (
+                  <li key={s.id}>
+                    <button
+                      onClick={() => go(s.id)}
                       onMouseEnter={() => soundManager.playHover()}
-                      className="w-full flex items-center justify-between p-4 rounded-xl bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700 hover:border-white/50 transition-all text-left"
+                      className="flex w-full items-center gap-4 border-b-2 border-rule px-5 py-4 text-left transition-colors duration-fast ease-snap hover:bg-paper hover:text-ink-0"
                     >
-                      <span className="text-white font-medium">
-                        {item.label}
+                      <span className="font-mono text-micro tabular-nums text-paper-3">
+                        {s.num}
                       </span>
-                    </motion.button>
-                  ))}
-                </nav>
-
-                <div className="mt-8 pt-8 border-t border-zinc-800">
-                  <p className="text-xs text-zinc-500 text-center">
-                    © 2025 Ravi Shankar
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+                      <span className="font-display text-lg font-extrabold uppercase">
+                        {s.short}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <p className="px-5 py-4 font-mono text-micro uppercase text-paper-3">
+                © 2026 {profile.name}
+              </p>
+            </motion.nav>
           </>
         )}
       </AnimatePresence>
     </>
   );
-};
-
-export default MobileMenu;
+}

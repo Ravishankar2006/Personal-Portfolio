@@ -1,74 +1,80 @@
-// src/components/Contact.jsx
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
+import Section from "../ui/Section";
+import Row from "../ui/Row";
+import { contact, profile } from "../../data/profile";
+import { enterUp } from "../../motion";
+import { useEffectsEnabled, setEffectsEnabled } from "../../hooks/useEffectsEnabled";
 
-const contactLinks = [
-  { name: "GitHub", url: "https://github.com/Ravishankar2006" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/ravishankar-a-g" },
-  { name: "Email", url: "mailto:ravishankar08062006@gmail.com" }
-];
+/**
+ * Contact — the address IS the call to action.
+ *
+ * The old version was three identical cards each captioned "Connect
+ * with me", which said nothing. This leads with the email at display
+ * size and adds LeetCode and résumé, neither of which the site
+ * surfaced despite 450+ solved being its strongest single number.
+ */
+export default function Contact() {
+  const reduced = useReducedMotion();
+  const [copied, setCopied] = useState(false);
+  const effects = useEffectsEnabled();
 
-const Contact = () => {
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(contact.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch {
+      // Clipboard blocked — the mailto link below still works.
+    }
+  };
+
   return (
-    <section className="relative w-full bg-black text-white py-20 px-6">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-800/10 rounded-full blur-3xl" />
+    <Section id="contact" num="05" kicker="Contact" title="Let's build something">
+      <motion.div {...enterUp(reduced)}>
+        <a
+          href={`mailto:${contact.email}`}
+          className="block font-display text-h2 font-black uppercase text-paper transition-colors duration-fast ease-snap hover:text-acc"
+          style={{ overflowWrap: "anywhere" }}
+        >
+          {contact.email}
+        </a>
+
+        <button
+          onClick={copy}
+          className="mt-3 border-2 border-rule px-3 py-1 font-mono text-micro uppercase text-paper-2 transition-colors duration-fast ease-snap hover:border-paper hover:bg-paper hover:text-ink-0"
+        >
+          {copied ? "Copied ✓" : "Copy address"}
+        </button>
+      </motion.div>
+
+      <div className="mt-s6 border-t-2 border-rule">
+        {contact.links.map((l, i) =>
+          l.url ? (
+            <Row key={l.label} index={i} title={l.label} meta={l.handle} href={l.url} />
+          ) : (
+            <Row key={l.label} index={i} title={l.label} meta={l.handle} />
+          )
+        )}
       </div>
 
-      <div className="relative max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-zinc-500 text-xs uppercase tracking-[0.3em] mb-3">
-            Get In Touch
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-12"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {contactLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:border-white/20 transition-all overflow-hidden"
-              >
-                {/* Gradient glow */}
-                <div className="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10 flex items-center justify-between w-full">
-                  <div>
-                    <h3 className="font-bold text-lg text-white group-hover:text-zinc-300 transition-colors">{link.name}</h3>
-                    <p className="text-sm text-zinc-400">Connect with me</p>
-                  </div>
-                  <span className="text-2xl text-zinc-500 group-hover:text-white transition-colors">→</span>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
+      {/* Colophon */}
+      <div className="mt-s6 flex flex-wrap items-center justify-between gap-4 border-t-2 border-rule pt-s3 font-mono text-micro uppercase text-paper-3">
+        <span>
+          {profile.name} · {profile.location}
+        </span>
+        <div className="flex items-center gap-4">
+          <span>© 2026</span>
+          {/* The escape hatch for every decorative effect on the page. */}
+          <button
+            onClick={() => setEffectsEnabled(!effects)}
+            aria-pressed={effects}
+            className="border-2 border-rule px-2 py-1 uppercase transition-colors duration-fast ease-snap hover:border-paper hover:bg-paper hover:text-ink-0"
+          >
+            Effects: {effects ? "On" : "Off"}
+          </button>
+        </div>
       </div>
-    </section>
+    </Section>
   );
-};
-
-export default Contact;
+}

@@ -104,6 +104,21 @@ textarea {
    named, continuously-animating elements that need it, and is removed
    when they stop. */
 
+/* Measurement tick — advances in discrete jumps like a survey
+   instrument rather than sweeping smoothly like a scanner. */
+@keyframes grid-tick {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+.grid-tick {
+  animation: grid-tick 14s steps(28, end) infinite;
+}
+
 @keyframes scan {
   0% {
     transform: translateY(-100%);
