@@ -30,6 +30,25 @@
   --acc: #00f0ff;
   --acc-ink: #000000;
 
+  /* ── Channel mirrors ────────────────────────────────────────
+     Tailwind can only apply an opacity modifier (bg-ink-0/95) when
+     the colour is `rgb(var(--x) / <alpha-value>)`. Given a plain
+     hex it drops the modified class SILENTLY — no warning, no CSS,
+     so backdrops render fully transparent. These channel mirrors
+     are what tailwind.config.js consumes; the hex tokens above stay
+     for direct use in this stylesheet.
+     Keep the two in sync.                                        */
+  --ink-0-rgb: 0 0 0;
+  --ink-1-rgb: 10 10 10;
+  --ink-2-rgb: 20 20 20;
+  --paper-rgb: 255 255 255;
+  --paper-2-rgb: 196 196 196;
+  --paper-3-rgb: 138 138 138;
+  --rule-rgb: 46 46 46;
+  --rule-2-rgb: 77 77 77;
+  --acc-rgb: 0 240 255;
+  --acc-ink-rgb: 0 0 0;
+
   /* ── Rule weights ───────────────────────────────────────── */
   --w-hair: 1px; /* grid overlay, intra-block separator */
   --w-1: 2px;    /* default panel border, section separator */

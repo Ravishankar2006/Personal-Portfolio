@@ -31,24 +31,28 @@ export default {
     },
 
     extend: {
+      // Channel form (not plain hex/var) so opacity modifiers like
+      // `bg-ink-0/95` actually compile. With a bare `var(--ink-0)`
+      // Tailwind drops the modified class silently and the element
+      // renders with no background at all.
       colors: {
         ink: {
-          0: "var(--ink-0)",
-          1: "var(--ink-1)",
-          2: "var(--ink-2)",
+          0: "rgb(var(--ink-0-rgb) / <alpha-value>)",
+          1: "rgb(var(--ink-1-rgb) / <alpha-value>)",
+          2: "rgb(var(--ink-2-rgb) / <alpha-value>)",
         },
         paper: {
-          DEFAULT: "var(--paper)",
-          2: "var(--paper-2)",
-          3: "var(--paper-3)",
+          DEFAULT: "rgb(var(--paper-rgb) / <alpha-value>)",
+          2: "rgb(var(--paper-2-rgb) / <alpha-value>)",
+          3: "rgb(var(--paper-3-rgb) / <alpha-value>)",
         },
         rule: {
-          DEFAULT: "var(--rule)",
-          2: "var(--rule-2)",
+          DEFAULT: "rgb(var(--rule-rgb) / <alpha-value>)",
+          2: "rgb(var(--rule-2-rgb) / <alpha-value>)",
         },
         acc: {
-          DEFAULT: "var(--acc)",
-          ink: "var(--acc-ink)",
+          DEFAULT: "rgb(var(--acc-rgb) / <alpha-value>)",
+          ink: "rgb(var(--acc-ink-rgb) / <alpha-value>)",
         },
       },
       fontFamily: {
