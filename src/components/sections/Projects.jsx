@@ -11,8 +11,20 @@ const projectsData = [
   {
     title: "Ascend",
     description: "A productivity app where users can add tasks, complete them, and track focused minutes using a built-in timer.",
-    tech: ["Flutter", "Firebase"],
+    tech: ["Flutter", "Riverpod", "Firebase"],
     github: "https://github.com/Ravishankar2006/Ascend"
+  },
+  {
+    title: "Broke No More",
+    description: "A gamified, fully offline financial tracker that rewards users for logging their spending daily and staying under their set budget.",
+    tech: ["Flutter", "Riverpod", "Hive"],
+    github: "https://github.com/Ravishankar2006/Broke-No-More"
+  },
+  {
+    title: "Musica",
+    description: "A production-grade offline music player with albums, artists, play counts, favorites, and more.",
+    tech: ["Flutter", "Riverpod", "Isar"],
+    github: "https://github.com/Ravishankar2006/Musica"
   },
   {
     title: "ConflictFree",

@@ -30,6 +30,7 @@ const workflowData = [
       { name: "GitHub", description: "Version control" },
       { name: "Postman", description: "API testing" },
       { name: "Android Studio", description: "Mobile development" },
+      { name: "Firebase", description: "Backend & auth platform" },
       { name: "AWS", description: "Cloud platform" },
       { name: "Vercel / Render", description: "Deployment" },
       { name: "Google Colab", description: "ML notebooks" }
