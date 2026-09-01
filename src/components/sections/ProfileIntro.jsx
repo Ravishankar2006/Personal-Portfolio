@@ -1,45 +1,52 @@
 // src/components/sections/ProfileIntro.jsx - COMPLETE VERSION
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import profileImg from "../../assets/me3.png";
+import profileImg from "../../assets/me3.webp";
 
 // Animated Counter Component
 const AnimatedCounter = ({ value, suffix = "" }) => {
+  const end = parseFloat(value);
+  // Only show a decimal if the target actually has one — otherwise "5" rendered as "5.0"
+  const decimals = String(value).includes(".") ? 1 : 0;
   const [count, setCount] = useState(0);
   const nodeRef = useRef(null);
+  const timerRef = useRef(null);
 
   useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          let start = 0;
-          const end = parseFloat(value);
-          const duration = 2000;
-          const increment = end / (duration / 16);
+        // Guard against re-triggering on every scroll pass
+        if (!entries[0].isIntersecting || timerRef.current) return;
 
-          const timer = setInterval(() => {
-            start += increment;
-            if (start >= end) {
-              setCount(end);
-              clearInterval(timer);
-            } else {
-              setCount(start);
-            }
-          }, 16);
-
-          return () => clearInterval(timer);
-        }
+        let start = 0;
+        const increment = end / (2000 / 16);
+        timerRef.current = setInterval(() => {
+          start += increment;
+          if (start >= end) {
+            setCount(end);
+            clearInterval(timerRef.current);
+          } else {
+            setCount(start);
+          }
+        }, 16);
       },
       { threshold: 0.5 }
     );
 
-    if (nodeRef.current) observer.observe(nodeRef.current);
-    return () => observer.disconnect();
-  }, [value]);
+    observer.observe(node);
+    // Cleanup must live here — returning it from the observer callback never ran
+    return () => {
+      observer.disconnect();
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [end]);
 
   return (
     <span ref={nodeRef}>
-      {count.toFixed(1)}
+      {count.toFixed(decimals)}
       {suffix}
     </span>
   );
@@ -299,8 +306,9 @@ const ProfileIntro = () => {
             >
               {[
                 { label: "CGPA", value: "7.3", suffix: "" },
-                { label: "PROJECTS", value: "5", suffix: "+" },
-                { label: "SKILLS", value: "10", suffix: "+" },
+                // 6 shipped total (matches Proof); 5 are showcased in Work
+                { label: "SHIPPED", value: "6", suffix: "" },
+                { label: "SKILLS", value: "20", suffix: "+" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}

@@ -2,15 +2,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-// Import certificate images
-import dsaUdemy from "../../assets/dsa_udemy.jpg";
-import mernCampusAacharya from "../../assets/mern_internship_campus_aacharya.jpg";
-import techsprintGdg from "../../assets/techsprint_gdg.png";
-import kaggleIntroML from "../../assets/kaggle_intro_ml.png";
-import kaggleIntermediateML from "../../assets/kaggle_intermediate_ml.png";
-import kaggleDeepLearning from "../../assets/kaggle_intro_deep_learning.png";
-import kagglePandas from "../../assets/kaggle_pandas.png";
-import kagglePython from "../../assets/kaggle_python.png";
+// Import certificate images — thumb for the card, full for the lightbox
+import dsaUdemy from "../../assets/dsa_udemy-thumb.webp";
+import dsaUdemyFull from "../../assets/dsa_udemy-full.webp";
+import mernCampusAacharya from "../../assets/mern_internship_campus_aacharya-thumb.webp";
+import mernCampusAacharyaFull from "../../assets/mern_internship_campus_aacharya-full.webp";
+import techsprintGdg from "../../assets/techsprint_gdg-thumb.webp";
+import techsprintGdgFull from "../../assets/techsprint_gdg-full.webp";
+import kaggleIntroML from "../../assets/kaggle_intro_ml-thumb.webp";
+import kaggleIntroMLFull from "../../assets/kaggle_intro_ml-full.webp";
+import kaggleIntermediateML from "../../assets/kaggle_intermediate_ml-thumb.webp";
+import kaggleIntermediateMLFull from "../../assets/kaggle_intermediate_ml-full.webp";
+import kaggleDeepLearning from "../../assets/kaggle_intro_deep_learning-thumb.webp";
+import kaggleDeepLearningFull from "../../assets/kaggle_intro_deep_learning-full.webp";
+import kagglePandas from "../../assets/kaggle_pandas-thumb.webp";
+import kagglePandasFull from "../../assets/kaggle_pandas-full.webp";
+import kagglePython from "../../assets/kaggle_python-thumb.webp";
+import kagglePythonFull from "../../assets/kaggle_python-full.webp";
 
 const achievementsData = [
   {
@@ -20,43 +28,50 @@ const achievementsData = [
         title: "Mastering Data Structures & Algorithms using C and C++",
         issuer: "Udemy (Abdul Bari)",
         date: "May 18, 2025",
-        image: dsaUdemy
+        image: dsaUdemy,
+        full: dsaUdemyFull
       },
       {
         title: "MERN Stack Internship with Capstone Project",
         issuer: "Campus Aacharya",
         date: "Dec 19, 2025",
-        image: mernCampusAacharya
+        image: mernCampusAacharya,
+        full: mernCampusAacharyaFull
       },
       {
         title: "Python",
         issuer: "Kaggle",
         date: "Feb 25, 2025",
-        image: kagglePython
+        image: kagglePython,
+        full: kagglePythonFull
       },
       {
         title: "Intro to Machine Learning",
         issuer: "Kaggle",
         date: "Mar 2, 2025",
-        image: kaggleIntroML
+        image: kaggleIntroML,
+        full: kaggleIntroMLFull
       },
       {
         title: "Pandas",
         issuer: "Kaggle",
         date: "Mar 14, 2025",
-        image: kagglePandas
+        image: kagglePandas,
+        full: kagglePandasFull
       },
       {
         title: "Intermediate Machine Learning",
         issuer: "Kaggle",
         date: "Jul 1, 2025",
-        image: kaggleIntermediateML
+        image: kaggleIntermediateML,
+        full: kaggleIntermediateMLFull
       },
       {
         title: "Intro to Deep Learning",
         issuer: "Kaggle",
         date: "Sep 12, 2025",
-        image: kaggleDeepLearning
+        image: kaggleDeepLearning,
+        full: kaggleDeepLearningFull
       }
     ]
   },
@@ -67,7 +82,8 @@ const achievementsData = [
         title: "TechSprint Hackathon 2026 - Top 10 Teams",
         issuer: "GDG on Campus & SECE",
         date: "2026",
-        image: techsprintGdg
+        image: techsprintGdg,
+        full: techsprintGdgFull
       }
     ]
   }
@@ -146,7 +162,7 @@ const Achievements = () => {
               viewport={{ once: false }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              onClick={() => setSelectedImage(item.image)}
+              onClick={() => setSelectedImage(item.full)}
               className="relative group cursor-pointer"
             >
               {/* Scan line animation */}
@@ -165,6 +181,10 @@ const Achievements = () => {
                       <img
                         src={item.image}
                         alt={item.title}
+                        width="600"
+                        height="370"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
