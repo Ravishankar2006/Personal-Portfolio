@@ -20,19 +20,31 @@ import kaggleInterML from "../assets/kaggle_intermediate_ml-thumb.webp";
 import kaggleInterMLFull from "../assets/kaggle_intermediate_ml-full.webp";
 import kaggleDL from "../assets/kaggle_intro_deep_learning-thumb.webp";
 import kaggleDLFull from "../assets/kaggle_intro_deep_learning-full.webp";
+import hcl from "../assets/hcl_ai_social_impact-thumb.webp";
+import hclFull from "../assets/hcl_ai_social_impact-full.webp";
+import adobe from "../assets/adobe_university_hackathon-thumb.webp";
+import adobeFull from "../assets/adobe_university_hackathon-full.webp";
+import ey from "../assets/ey_techathon-thumb.webp";
+import eyFull from "../assets/ey_techathon-full.webp";
+import smartMotion from "../assets/smart_motion_hackathon-thumb.webp";
+import smartMotionFull from "../assets/smart_motion_hackathon-full.webp";
+import codeathon from "../assets/codeathon_thiran-thumb.webp";
+import codeathonFull from "../assets/codeathon_thiran-full.webp";
+import brainwave from "../assets/brainwave_ggsipu-thumb.webp";
+import brainwaveFull from "../assets/brainwave_ggsipu-full.webp";
 
 /** The four headline numerics. */
 export const stats = [
-  { value: 450, suffix: "+", label: "LeetCode solved" },
+  { value: 550, suffix: "+", label: "LeetCode solved" },
   { value: 1702, suffix: "", label: "LeetCode rating" },
-  { value: 150, suffix: "+", label: "GitHub contributions" },
+  { value: 400, suffix: "+", label: "GitHub contributions" },
   { value: 6, suffix: "", label: "Projects shipped" },
 ];
 
 /** Secondary numbers, set as a mono strip rather than more big tiles. */
 export const statsMeta = [
   "Top 13% globally",
-  "39 contests",
+  "42 contests",
   "5★ C++ · HackerRank",
 ];
 
@@ -48,6 +60,13 @@ export const credentials = [
     org: "GDG on Campus & SECE",
     thumb: techsprint,
     full: techsprintFull,
+  },
+  {
+    year: "2026",
+    title: "AI for Social Impact Challenge — Top 100 Finalists",
+    org: "HCLFoundation & StartupTN",
+    thumb: hcl,
+    full: hclFull,
   },
   {
     year: "2025",
@@ -70,11 +89,31 @@ export const kaggleGroup = {
   year: "2025",
   title: "Kaggle — 5 certificates",
   org: "Through intermediate level",
+  prefix: "Kaggle",
   items: [
     { label: "Python", thumb: kagglePython, full: kagglePythonFull },
     { label: "Pandas", thumb: kagglePandas, full: kagglePandasFull },
     { label: "Intro to ML", thumb: kaggleIntroML, full: kaggleIntroMLFull },
     { label: "Intermediate ML", thumb: kaggleInterML, full: kaggleInterMLFull },
     { label: "Intro to Deep Learning", thumb: kaggleDL, full: kaggleDLFull },
+  ],
+};
+
+/**
+ * Five participation-only hackathon certs, grouped for the same reason
+ * kaggleGroup is: as individual rows they'd outweigh actual placings
+ * (TechSprint, HCL) 5:1, which inverts what each one is worth.
+ */
+export const hackathonGroup = {
+  year: "2026",
+  title: "Hackathon Participation — 5 certificates",
+  org: "Adobe · EY · CIT · GGSIPU · SECE",
+  prefix: "Hackathon",
+  items: [
+    { label: "Adobe University Hackathon", thumb: adobe, full: adobeFull },
+    { label: "EY Techathon 6.0", thumb: ey, full: eyFull },
+    { label: "Smart Motion Hackathon", thumb: smartMotion, full: smartMotionFull },
+    { label: "Codeathon 2.0 — THIRAN", thumb: codeathon, full: codeathonFull },
+    { label: "Brainwave — GGSIPU Delhi", thumb: brainwave, full: brainwaveFull },
   ],
 };

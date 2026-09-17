@@ -4,8 +4,47 @@ import Section from "../ui/Section";
 import Row from "../ui/Row";
 import Counter from "../ui/Counter";
 import Lightbox from "../ui/Lightbox";
-import { stats, statsMeta, credentials, kaggleGroup } from "../../data/proof";
+import {
+  stats,
+  statsMeta,
+  credentials,
+  kaggleGroup,
+  hackathonGroup,
+} from "../../data/proof";
 import { enterRow } from "../../motion";
+
+/** One grouped credential row — a cluster of same-weight certs collapsed
+ *  into a single line with buttons, so they don't outweigh a real placing. */
+function CredentialGroup({ group, onSelect }) {
+  return (
+    <div className="border-b-2 border-rule px-2 py-s4">
+      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <span className="font-mono text-meta tabular-nums text-paper-3">
+          {group.year}
+        </span>
+        <span className="font-display text-h3 font-extrabold uppercase tracking-tight text-paper">
+          {group.title}
+        </span>
+        <span className="font-mono text-micro uppercase text-paper-3">
+          {group.org}
+        </span>
+      </div>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {group.items.map((item) => (
+          <button
+            key={item.label}
+            onClick={() =>
+              onSelect({ src: item.full, alt: `${group.prefix} — ${item.label}` })
+            }
+            className="border-2 border-rule px-2 py-1 font-mono text-micro uppercase text-paper-2 transition-colors duration-fast ease-snap hover:border-paper hover:bg-paper hover:text-ink-0"
+          >
+            {item.label} →
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /**
  * PROOF — the numbers and the credentials in one section.
@@ -58,33 +97,11 @@ export default function Proof() {
           />
         ))}
 
-        {/* The five Kaggle certs collapse into ONE row. As five equal
-            image cards they outweighed the hackathon placing 5:1
-            visually, which inverted their actual worth. */}
-        <div className="border-b-2 border-rule px-2 py-s4">
-          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <span className="font-mono text-meta tabular-nums text-paper-3">
-              {kaggleGroup.year}
-            </span>
-            <span className="font-display text-h3 font-extrabold uppercase tracking-tight text-paper">
-              {kaggleGroup.title}
-            </span>
-            <span className="font-mono text-micro uppercase text-paper-3">
-              {kaggleGroup.org}
-            </span>
-          </div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {kaggleGroup.items.map((k) => (
-              <button
-                key={k.label}
-                onClick={() => setShown({ src: k.full, alt: `Kaggle — ${k.label}` })}
-                className="border-2 border-rule px-2 py-1 font-mono text-micro uppercase text-paper-2 transition-colors duration-fast ease-snap hover:border-paper hover:bg-paper hover:text-ink-0"
-              >
-                {k.label} →
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* Certificate groups collapse each cluster into ONE row. As
+            equal-weight individual cards they'd outweigh a real placing
+            like TechSprint or HCL, which inverts their actual worth. */}
+        <CredentialGroup group={kaggleGroup} onSelect={setShown} />
+        <CredentialGroup group={hackathonGroup} onSelect={setShown} />
       </div>
 
       <Lightbox
